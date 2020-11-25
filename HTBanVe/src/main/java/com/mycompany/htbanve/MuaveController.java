@@ -5,11 +5,17 @@
  */
 package com.mycompany.htbanve;
 
+import com.mycompany.htbanve.pojo.TenCX;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -22,12 +28,23 @@ public class MuaveController implements Initializable {
     App.setRoot("TrangChu");
     
 }
+    @FXML
+    private GridPane gridpane;
+    @FXML
+    private ComboBox<TenCX> cbTenCX;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.cbTenCX.prefWidthProperty().bind(this.gridpane.widthProperty());
+        
+        try {
+            // load du lieu tencx
+            this.cbTenCX.getItems().addAll(Utils.getTenCX());
+        } catch (SQLException ex) {
+            Logger.getLogger(MuaveController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     
 }

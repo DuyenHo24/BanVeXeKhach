@@ -7,6 +7,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * JavaFX App
@@ -17,6 +21,18 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("Muave"));
+//        Scene scene = new Scene(root);
+        
+        stage.setOnHidden(et ->{
+                Connection conn = JdbcUtils.getConnection();
+                if(conn != null)
+                    try {
+                        conn.close();
+                    } catch (SQLException ex){
+                        
+                    }
+        });
         scene = new Scene(loadFXML("TrangChu"), 640, 480);
         stage.setScene(scene);
         stage.show();
