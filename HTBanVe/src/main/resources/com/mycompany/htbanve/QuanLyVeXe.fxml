@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="559.0" prefWidth="821.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.mycompany.htbanve.QuanLyVeXeController">
+   <children>
+      <TabPane layoutX="16.0" layoutY="19.0" prefHeight="559.0" prefWidth="865.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Thông tin vé xe">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="865.0">
+                     <children>
+                        <Label layoutX="37.0" layoutY="22.0" prefHeight="17.0" prefWidth="89.0" text="Tìm thông tin:" />
+                        <TextField layoutX="126.0" layoutY="18.0" prefHeight="25.0" prefWidth="313.0" />
+                        <Button layoutX="473.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Tìm" />
+                        <TableView layoutX="23.0" layoutY="43.0" prefHeight="415.0" prefWidth="831.0">
+                           <columns>
+                              <TableColumn prefWidth="90.66665363311768" text="Tên chuyến xe" />
+                              <TableColumn prefWidth="79.9999771118164" text="Biển số xe" />
+                              <TableColumn prefWidth="79.99995422363281" text="Loại xe" />
+                              <TableColumn prefWidth="79.33331298828125" text="Ngày KH" />
+                              <TableColumn prefWidth="68.0" text="Giờ KH" />
+                              <TableColumn prefWidth="134.66671752929688" text="Họ tên khách hàng" />
+                              <TableColumn prefWidth="106.0" text="Số điện thoại" />
+                              <TableColumn prefWidth="34.66668701171875" text="Chức năng" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="413.0" layoutY="490.0" mnemonicParsing="false" onAction="#QuayLai" text="Quay Lại" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Thống kê">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
