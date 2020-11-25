@@ -16,7 +16,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="857.0" prefWidth="726.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.MuaveController">
   <children>
-    <GridPane layoutX="19.0" layoutY="68.0" prefHeight="340.0" prefWidth="610.0">
+    <GridPane fx:id="gridpane" layoutX="19.0" layoutY="68.0" prefHeight="340.0" prefWidth="610.0">
       <children>
         <Label prefHeight="9.0" prefWidth="140.0" text="Tên chuyến xe :" />
         <Label text="Biển số xe :" GridPane.rowIndex="1" />
@@ -36,7 +36,7 @@
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <Label text="Họ tên khách :" GridPane.rowIndex="8" />
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-        <ComboBox prefWidth="499.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <ComboBox fx:id="cbTenCX" prefWidth="499.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
