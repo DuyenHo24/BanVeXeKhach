@@ -10,9 +10,9 @@ package com.mycompany.htbanve.pojo;
  * @author ASUS-LAPTOP
  */
 public class TenCX {
-    private int idTenCX;
+    private String idTenCX;
     private String NameCX;
-    public TenCX(int idTenCX,String NameCX){
+    public TenCX(String idTenCX,String NameCX){
         this.idTenCX = idTenCX;
         this.NameCX = NameCX;
     }
@@ -22,19 +22,7 @@ public class TenCX {
         return this.NameCX; //To change body of generated methods, choose Tools | Templates.
     }
     
-    /**
-     * @return the idTenCX
-     */
-    public int getIdTenCX() {
-        return idTenCX;
-    }
 
-    /**
-     * @param idTenCX the idTenCX to set
-     */
-    public void setIdTenCX(int idTenCX) {
-        this.idTenCX = idTenCX;
-    }
 
     /**
      * @return the NameCX
@@ -48,5 +36,19 @@ public class TenCX {
      */
     public void setNameCX(String NameCX) {
         this.NameCX = NameCX;
+    }
+
+    /**
+     * @return the idTenCX
+     */
+    public String getIdTenCX() {
+        return idTenCX;
+    }
+
+    /**
+     * @param idTenCX the idTenCX to set
+     */
+    public void setIdTenCX(String idTenCX) {
+        this.idTenCX = idTenCX;
     }
 }
