@@ -46,17 +46,9 @@
           </items>
         </ComboBox>
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <ComboBox prefWidth="499.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-          <items>
-            <FXCollections fx:factory="observableArrayList">
-              <String fx:value="Item 1" />
-              <String fx:value="Item 2" />
-              <String fx:value="Item 3" />
-            </FXCollections>
-          </items>
-        </ComboBox>
         <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="128.0" text="Xác nhận" GridPane.columnIndex="0" GridPane.rowIndex="10" />
         <Button mnemonicParsing="false" onAction="#QuayLai" prefHeight="30.0" prefWidth="85.0" text="Quay lại" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <ComboBox prefHeight="26.0" prefWidth="472.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="173.0" />

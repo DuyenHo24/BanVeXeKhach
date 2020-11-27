@@ -41,6 +41,7 @@ public class MuaveController implements Initializable {
         
         try {
             // load du lieu tencx
+            this.cbTenCX.getItems().clear();
             this.cbTenCX.getItems().addAll(Utils.getTenCX());
         } catch (SQLException ex) {
             Logger.getLogger(MuaveController.class.getName()).log(Level.SEVERE, null, ex);

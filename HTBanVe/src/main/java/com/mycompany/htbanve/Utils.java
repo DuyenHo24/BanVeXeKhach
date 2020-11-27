@@ -7,11 +7,13 @@ package com.mycompany.htbanve;
 
 import com.mycompany.htbanve.pojo.TenCX;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  *
@@ -25,10 +27,24 @@ public class Utils {
         
         List<TenCX> results = new ArrayList<>();
         while(rs.next()){
-            TenCX c = new TenCX(rs.getInt("idTenCX"),rs.getString("NameCX"));
+            TenCX c = new TenCX(rs.getString("idTenCX"),rs.getString("NameCX"));
             results.add(c);
             
         }
         return results;
+    }
+    
+    public static void addTenCX(TenCX tencx) throws SQLException{
+        Connection conn = JdbcUtils.getConnection();
+        String sql1 = "INSERT INTO tencx(idTenCX, NameCX) VALUES(?,?)";
+        
+        conn.setAutoCommit(false);       
+        //add tencx
+        PreparedStatement stm = conn.prepareStatement(sql1);  
+        stm.setString(1, tencx.getIdTenCX());
+        stm.setString(2, tencx.getNameCX());
+                
+        stm.executeUpdate();
+        conn.commit();
     }
 }
