@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -53,7 +52,7 @@
                               <Label text="Tên người tạo :" GridPane.rowIndex="8" />
                               <Label text="SĐT liên hệ :" GridPane.rowIndex="9" />
                               <TextField fx:id="txtTenCX" GridPane.columnIndex="1" />
-                              <TextField prefHeight="25.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtBSX" prefHeight="25.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
                               <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
@@ -74,22 +73,9 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="823.0">
                      <children>
                         <Label layoutX="104.0" layoutY="37.0" text="Tìm thông tin :" />
-                        <TextField layoutX="198.0" layoutY="30.0" prefHeight="31.0" prefWidth="371.0" />
+                        <TextField fx:id="txtKeyQLCX" layoutX="198.0" layoutY="30.0" prefHeight="31.0" prefWidth="371.0" />
                         <Button layoutX="595.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Tìm" />
-                        <TableView layoutX="14.0" layoutY="100.0" prefHeight="386.0" prefWidth="770.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Số thứ tự" />
-                            <TableColumn prefWidth="75.0" text="Tên chuyến xe" />
-                              <TableColumn prefWidth="75.0" text="Biển số xe" />
-                              <TableColumn prefWidth="75.0" text="Loại xe" />
-                              <TableColumn prefWidth="75.0" text="Ngày khởi hành" />
-                              <TableColumn prefWidth="75.0" text="Giờ khởi hành" />
-                              <TableColumn prefWidth="75.0" text="Giá vé" />
-                              <TableColumn prefWidth="75.0" text="Tên người tạo" />
-                              <TableColumn prefWidth="75.0" text="Số điện thoại" />
-                              <TableColumn prefWidth="75.0" text="Chức năng" />
-                          </columns>
-                        </TableView>
+                        <TableView fx:id="tbvtencxQLCX" layoutX="14.0" layoutY="100.0" prefHeight="386.0" prefWidth="792.0" />
                      </children>
                   </AnchorPane>
             </content>
