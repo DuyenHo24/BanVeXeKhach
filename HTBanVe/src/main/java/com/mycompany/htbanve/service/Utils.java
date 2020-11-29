@@ -6,12 +6,7 @@
 package com.mycompany.htbanve.service;
 
 import com.mycompany.htbanve.pojo.BienSoXe;
-import com.mycompany.htbanve.pojo.GiaVe;
-import com.mycompany.htbanve.pojo.GioKH;
-import com.mycompany.htbanve.pojo.LoaiXe;
-import com.mycompany.htbanve.pojo.SDTNV;
 import com.mycompany.htbanve.pojo.TenCX;
-import com.mycompany.htbanve.pojo.TenNV;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,55 +34,46 @@ public class Utils {
         }
         return results;
     }
-    
-    public static void addTenCX(TenCX tencx, BienSoXe bsx, LoaiXe lx, GioKH gkh, GiaVe gv, TenNV nv,SDTNV sdt) 
-            throws SQLException{
+    public static List<TenCX> getTenCX(String keyword) throws SQLException{
+        String sql = "SELECT * FROM tencx";
+        if(!keyword.isEmpty())
+            sql += "WHERE NameCX like ?";
+        
         Connection conn = JdbcUtils.getConnection();
+        PreparedStatement stm = conn.prepareStatement(sql);
+        if(!keyword.isEmpty())
+            stm.setString(1,String.format("%%%s%%",keyword));
+        ResultSet rs = stm.executeQuery();
+        List<TenCX> tencxs = new ArrayList<>();
+        while(rs.next()){
+            TenCX q = new TenCX(rs.getString("idtencx"),
+                    rs.getString("NameCX"));
+            tencxs.add(q);
+        }
+        return tencxs;
+        
+    }
+    public static void addTenCX(TenCX tencx,BienSoXe bsx) throws SQLException{//THEM BIEN
+        Connection conn = JdbcUtils.getConnection();
+        //addtencx
         String sql1 = "INSERT INTO tencx(idTenCX, NameCX) VALUES(?,?)";
-        String sql2 = "INSERT INTO biensoxe(idbiensoxe, namebiensoxe) VALUES(?,?)";
-        String sql3 = "INSERT INTO loaixe(idLoaiXe, NameLoaiXe) VALUES(?,?)";
-        String sql4 = "INSERT INTO giokh(idGioKH, NameGioKH) VALUES(?,?)";
-        String sql5 = "INSERT INTO giave(idGiaVe, NameGiaVe) VALUES(?,?)";
-        String sql6 = "INSERT INTO tennv(idTenNV, NameTenNV) VALUES(?,?)";
-        String sql7 = "INSERT INTO sdtnv(idSDTNV, NameSDTNV) VALUES(?,?)";
+        //addbsx
+        String sql2 = "INSERT INTO biensoxe(idbiensoxe, biensoxecol) VALUES(?,?)";
         conn.setAutoCommit(false);       
-        
-        PreparedStatement stm = conn.prepareStatement(sql1);
+        //add tencx
+        PreparedStatement stm = conn.prepareStatement(sql1);  
+        //add biensoxe
         PreparedStatement stm2 = conn.prepareStatement(sql2);
-        PreparedStatement stm3 = conn.prepareStatement(sql3);
-        PreparedStatement stm4 = conn.prepareStatement(sql4);
-        PreparedStatement stm5 = conn.prepareStatement(sql5);
-        PreparedStatement stm6 = conn.prepareStatement(sql6);
-        PreparedStatement stm7 = conn.prepareStatement(sql7);
-        
+        //add tencx
         stm.setString(1, tencx.getIdTenCX());
         stm.setString(2, tencx.getNameCX());
-                
+        //add bien so xe
         stm2.setString(1, bsx.getIdBienSoXe());
-        stm2.setString(2, bsx.getNameBienSoXe());
-        
-        stm3.setString(1, lx.getIdLoaiXe());
-        stm3.setString(2, lx.getNameLoaiXe());
-        
-        stm4.setString(1, gkh.getIdGioKH());
-        stm4.setString(2, gkh.getNameGioKH());
-        
-        stm5.setString(1, gv.getIdGiaVe());
-        stm5.setString(2, gv.getNameGiave());
-        
-        stm6.setString(1, nv.getIdTenNV());
-        stm6.setString(2, nv.getNameNV());
-        
-        stm7.setString(1, sdt.getIdSDTNV());
-        stm7.setString(2, sdt.getnSDTNV());
-        
+        stm2.setString(2, bsx.getBienSoXeCol());
+                //add tencx
         stm.executeUpdate();
+        //add bsx
         stm2.executeUpdate();
-        stm3.executeUpdate();
-        stm4.executeUpdate();
-        stm5.executeUpdate();
-        stm6.executeUpdate();
-        stm7.executeUpdate();
         conn.commit();
     }
 }

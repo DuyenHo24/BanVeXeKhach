@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\App.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\TenCX.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\JdbcUtils.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\QuanLyVeXeController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\AddChuyenXeController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\MuaveController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\BienSoXe.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\Utils.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\TrangChuController.java
+=======
 D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\TenCX.java
 D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\Utils.java
 D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\LoaiXe.java
@@ -12,3 +23,4 @@ D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\JdbcUtils.ja
 D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\QuanLyVeXeController.java
 D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\BienSoXe.java
 D:\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\GiaVe.java
+>>>>>>> a419b28f759293a1519df0365ae0257ef108544f
