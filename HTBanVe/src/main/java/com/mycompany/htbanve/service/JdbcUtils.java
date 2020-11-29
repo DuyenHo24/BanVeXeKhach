@@ -23,7 +23,7 @@ public class JdbcUtils {
             
             try {
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/htbanve",
-                        "root","123456789");
+                        "root","htmd_240700");
             } catch (SQLException ex) {
                 Logger.getLogger(JdbcUtils.class.getName()).log(Level.SEVERE, null, ex);
             }

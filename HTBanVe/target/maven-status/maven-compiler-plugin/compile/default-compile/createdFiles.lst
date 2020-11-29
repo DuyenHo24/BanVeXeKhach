@@ -1,4 +1,17 @@
+com\mycompany\htbanve\pojo\TenCX.class
+com\mycompany\htbanve\pojo\GioKH.class
+com\mycompany\htbanve\service\Utils.class
 com\mycompany\htbanve\MuaveController.class
 com\mycompany\htbanve\QuanLyVeXeController.class
+<<<<<<< HEAD
+=======
+com\mycompany\htbanve\pojo\SDTNV.class
+com\mycompany\htbanve\AddChuyenXeController.class
+com\mycompany\htbanve\pojo\BienSoXe.class
+com\mycompany\htbanve\pojo\TenNV.class
+com\mycompany\htbanve\pojo\LoaiXe.class
+com\mycompany\htbanve\service\JdbcUtils.class
+>>>>>>> a419b28f759293a1519df0365ae0257ef108544f
 com\mycompany\htbanve\TrangChuController.class
+com\mycompany\htbanve\pojo\GiaVe.class
 com\mycompany\htbanve\App.class
