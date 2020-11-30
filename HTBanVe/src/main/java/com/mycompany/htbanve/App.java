@@ -25,15 +25,20 @@ public class App extends Application {
 //        Parent root = FXMLLoader.load(getClass().getResource("Muave"));
 //        Scene scene = new Scene(root);
         
-        stage.setOnHidden(et ->{
-                Connection conn = JdbcUtils.getConnection();
-                if(conn != null)
-                    try {
-                        conn.close();
-                    } catch (SQLException ex){
-                        
-                    }
-        });
+//        stage.setOnHidden(et ->{
+//                Connection conn = null;
+//            try {
+//                conn = (Connection) JdbcUtils.getDataQLCXs();
+//            } catch (ClassNotFoundException ex) {
+//                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//                if(conn != null)
+//                    try {
+//                        conn.close();
+//                    } catch (SQLException ex){
+//                        
+//                    }
+//        });
         scene = new Scene(loadFXML("TrangChu"), 640, 480);
         stage.setScene(scene);
         stage.show();
