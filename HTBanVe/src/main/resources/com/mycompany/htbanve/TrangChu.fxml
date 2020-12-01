@@ -7,9 +7,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.TrangChuController">
    <children>
-      <Label layoutX="88.0" layoutY="53.0" prefHeight="50.0" prefWidth="237.0" text="HỆ THỐNG ĐẶT VÉ XE KHÁCH">
-
-      </Label>
+      <Label layoutX="49.0" layoutY="41.0" prefHeight="50.0" prefWidth="316.0" text="HỆ THỐNG ĐẶT VÉ XE KHÁCH">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font></Label>
       <Button fx:id="Adminbt" layoutX="133.0" layoutY="111.0" mnemonicParsing="false" onAction="#SwitchtoAddCX" prefHeight="33.0" prefWidth="134.0" text="Quản Lý Chuyến Xe" />
       <Button fx:id="KHbt" layoutX="133.0" layoutY="222.0" mnemonicParsing="false" onAction="#SwitchtoKH" prefHeight="33.0" prefWidth="134.0" text="Mua vé" />
       <Button fx:id="exitbt" layoutX="177.0" layoutY="294.0" mnemonicParsing="false" onAction="#ExitTC" text="Thoát" />
