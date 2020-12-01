@@ -10,12 +10,10 @@ package com.mycompany.htbanve.pojo;
  * @author ASUS-LAPTOP
  */
 public class QLCXs {
-    int id;
-
-
-    String tencx,bsx,giokh,ngaykh,giave,ghe,tennv,sdtnv,loaixe;
-
-    public QLCXs(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String ghe, String tennv, String sdtnv) {
+    private int id;
+    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe;
+    private String ngaykh;
+    public QLCXs(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv) {
         this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
@@ -23,7 +21,6 @@ public class QLCXs {
         this.giokh = giokh;
         this.ngaykh = ngaykh;
         this.giave = giave;
-        this.ghe = ghe;
         this.tennv = tennv;
         this.sdtnv = sdtnv;
         
@@ -53,9 +50,6 @@ public class QLCXs {
         this.giave = giave;
     }
 
-    public void setGhe(String ghe) {
-        this.ghe = ghe;
-    }
 
     public void setTennv(String tennv) {
         this.tennv = tennv;
@@ -96,9 +90,6 @@ public class QLCXs {
         return giave;
     }
 
-    public String getGhe() {
-        return ghe;
-    }
 
     public String getTennv() {
         return tennv;

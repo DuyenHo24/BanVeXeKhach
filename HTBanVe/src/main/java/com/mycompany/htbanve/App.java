@@ -10,8 +10,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * JavaFX App
@@ -22,23 +20,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("Muave"));
-//        Scene scene = new Scene(root);
-        
-//        stage.setOnHidden(et ->{
-//                Connection conn = null;
-//            try {
-//                conn = (Connection) JdbcUtils.getDataQLCXs();
-//            } catch (ClassNotFoundException ex) {
-//                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//                if(conn != null)
-//                    try {
-//                        conn.close();
-//                    } catch (SQLException ex){
-//                        
-//                    }
-//        });
+//       Parent root = FXMLLoader.load(getClass().getResource("AddChuyenXe.fxml"));
+ //      Scene scene = new Scene(root);
+//        
+        stage.setOnHidden(et ->{
+                
+                Connection conn = (Connection) JdbcUtils.getDataQLCXs();
+                if(conn != null)
+                    try {
+                        conn.close();
+                    } catch (SQLException ex){
+                        
+                    }
+        });
         scene = new Scene(loadFXML("TrangChu"), 640, 480);
         stage.setScene(scene);
         stage.show();
@@ -54,7 +48,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }

@@ -25,7 +25,7 @@ public class JdbcUtils {
      public static Connection ConnectDb(){
          
         try {
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/htbanve",
                             "root","123456789");
                 JOptionPane.showMessageDialog(null,"Connection Established");
@@ -44,7 +44,7 @@ public class JdbcUtils {
             PreparedStatement ps = conn.prepareStatement( "SELECT * FROM htbanve.qlcx");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                list.add(new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXghe"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv"),rs.getString("QLCXstdnv")));
+                list.add(new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv"),rs.getString("QLCXstdnv")));
                 
             }
         } catch (SQLException e){       

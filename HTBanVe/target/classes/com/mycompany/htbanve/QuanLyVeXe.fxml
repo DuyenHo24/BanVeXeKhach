@@ -40,33 +40,6 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Thống kê">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView layoutX="4.0" layoutY="44.0" prefHeight="200.0" prefWidth="813.0">
-                          <columns>
-                            <TableColumn prefWidth="58.666683197021484" text="STT" />
-                            <TableColumn prefWidth="92.00000762939453" text="Tên chuyến xe" />
-                              <TableColumn prefWidth="75.0" text="Biển số xe" />
-                              <TableColumn prefWidth="75.0" text="Loại xe" />
-                              <TableColumn prefWidth="75.0" text="Ngày KH" />
-                              <TableColumn prefWidth="75.0" text="Giờ KH" />
-                              <TableColumn prefWidth="75.0" text="Giá vé" />
-                              <TableColumn prefWidth="75.0" text="Ghế" />
-                              <TableColumn prefWidth="122.0" text="Họ tên khách hàng" />
-                              <TableColumn prefWidth="86.00002034505212" text="Số điện thoại" />
-                          </columns>
-                        </TableView>
-                        <TableView layoutX="24.0" layoutY="256.0" prefHeight="147.0" prefWidth="153.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="Tổng số vé" />
-                            <TableColumn prefWidth="75.0" text="Tổng tiền" />
-                          </columns>
-                        </TableView>
-                     </children></AnchorPane>
-               </content>
-            </Tab>
          </tabs>
       </TabPane>
    </children>
