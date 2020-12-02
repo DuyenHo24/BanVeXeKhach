@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -19,14 +18,6 @@ import javafx.scene.control.Button;
  */
 public class TrangChuController implements Initializable {
     
-    @FXML
-    private Button Adminbt;
-
-    @FXML
-    private Button KHbt;
-
-    @FXML
-    private Button exitbt;
     
     @FXML
     public void SwitchtoAddCX() throws IOException {
