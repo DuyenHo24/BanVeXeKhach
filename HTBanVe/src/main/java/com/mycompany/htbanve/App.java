@@ -20,12 +20,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-//       Parent root = FXMLLoader.load(getClass().getResource("AddChuyenXe.fxml"));
- //      Scene scene = new Scene(root);
-//        
+       Parent root = FXMLLoader.load(getClass().getResource("AddChuyenXe.fxml"));
+       Scene scene = new Scene(root);
+        
         stage.setOnHidden(et ->{
                 
-                Connection conn = (Connection) JdbcUtils.getDataQLCXs();
+                Connection conn = JdbcUtils.getConnection();
                 if(conn != null)
                     try {
                         conn.close();
@@ -33,7 +33,7 @@ public class App extends Application {
                         
                     }
         });
-        scene = new Scene(loadFXML("TrangChu"), 640, 480);
+//        scene = new Scene(loadFXML("TrangChu"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
