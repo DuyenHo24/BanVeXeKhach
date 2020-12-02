@@ -8,22 +8,21 @@ package com.mycompany.htbanve;
 import com.mycompany.htbanve.pojo.QLCXs;
 import com.mycompany.htbanve.service.JdbcUtils;
 import com.mycompany.htbanve.service.QLCXsServices;
-import java.awt.HeadlessException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -76,8 +75,11 @@ public class AddChuyenXeController implements Initializable {
     private TextField txtloaixe;   
     @FXML
     private TextField txtgiave;
+    @FXML
+    private TextField filterField;
     
     ObservableList<QLCXs> list1;
+    ObservableList<QLCXs> dataList;
     int index = -1;
     Connection conn = null;
     ResultSet rs = null;
@@ -97,24 +99,25 @@ public class AddChuyenXeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             UpdateQLCX();
+//            FindCX();
         } catch (SQLException ex) {
             Logger.getLogger(AddChuyenXeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
     public void AddQLCX(){
-        Connection conn = JdbcUtils.getConnection();
+         conn = JdbcUtils.getConnection();
         //date
-        if ("".equals(txtid.getText()) ||"".equals(txttencx.getText()) || "".equals(txtbsx.getText()) || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
+        if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()))
         {
             
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
         }
         else{     
-            String sql = "INSERT INTO qlcx (QLCXid,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave,QLCXtennv,QLCXsdtnv,QLCXloaixe)values(?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO qlcx (idQLCX,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave,QLCXtennv,QLCXsdtnv,QLCXloaixe)values(?,?,?,?,?,?,?,?,?)";
             try {
                 pst = conn.prepareStatement(sql);
-                pst.setString(1,txtid.getText());
+                pst .setInt(1, Integer.parseInt(txtid.getText()));
                 pst.setString(2,txttencx.getText());
                 pst.setString(3,txtbsx.getText());
                 pst.setString(4,txtgiokh.getText());
@@ -129,7 +132,8 @@ public class AddChuyenXeController implements Initializable {
                 JOptionPane.showMessageDialog(null, "QLCXs add succes");
                 tbvQLCX.getItems().clear();
                 UpdateQLCX();
-            } catch (HeadlessException | SQLException e) {
+//                FindCX();
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }        
@@ -141,58 +145,30 @@ public class AddChuyenXeController implements Initializable {
             return;
         }
         txtid.setText(colid.getCellData(index).toString());
-        txttencx.setText(colNameCX.getCellData(index).toString());
-        txtbsx.setText(colbsx.getCellData(index).toString());
-        txtloaixe.setText(colloaixe.getCellData(index).toString());
+        txttencx.setText(colNameCX.getCellData(index));
+        txtbsx.setText(colbsx.getCellData(index));
+        txtloaixe.setText(colloaixe.getCellData(index));
         //date
-        txtngaykh.setText(colngaykh.getCellData(index).toString());
-        txtgiokh.setText(colgiokh.getCellData(index).toString());
-        txtgiave.setText(colgiave.getCellData(index).toString());
-        txttennv.setText(coltennv.getCellData(index).toString());
-        txtsdtnv.setText(colsdtnv.getCellData(index).toString());
+        txtngaykh.setText(colngaykh.getCellData(index));
+        txtgiokh.setText(colgiokh.getCellData(index));
+        txtgiave.setText(colgiave.getCellData(index));
+        txttennv.setText(coltennv.getCellData(index));
+        txtsdtnv.setText(colsdtnv.getCellData(index));
         
     }
     public void UpdateQLCX() throws SQLException{
         this.tbvQLCX.getItems().addAll(QLCXsServices.getDataQLCXs());
-        colid.setCellValueFactory(new PropertyValueFactory<QLCXs,Integer>("id"));
-        colNameCX.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("tencx"));
-        colbsx.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("bsx"));
-        colloaixe.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("loaixe"));
-        colgiokh.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("giokh"));
+        colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
+        colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
+        colloaixe.setCellValueFactory(new PropertyValueFactory<>("loaixe"));
+        colgiokh.setCellValueFactory(new PropertyValueFactory<>("giokh"));
         //date
-        colngaykh.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("ngaykh"));
-        colgiave.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("giave"));
-        coltennv.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("tennv"));
-        colsdtnv.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("sdtnv"));
-        TableColumn clAction = new TableColumn();
-        clAction.setCellFactory(p -> {
-            Button btn = new Button("Delete");
-            btn.setOnAction(et ->{
-                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-                confirm.setContentText("Are you sure to delete this CX?");
-//                confirm.showAndWait().ifPresent(res -> {
-//                        if (res == ButtonType.OK) {
-//                            TableCell cl = (TableCell)((Button)et.getSource()).getParent();
-//                            QLCXs q = (QLCXs)cl.getTableRow().getItem();
-//                            try {
-//                                DeleteQLCX();
-//                                AddChuyenXeController.this.tbvQLCX.getItems().clear();
-//                                UpdateQLCX();
-//                                Alert a = new Alert(Alert.AlertType.INFORMATION);
-//                                a.show();
-//                            }catch (Exception e) {
-//                                System.err.print(e.getMessage());
-//                            }}
-//                });
-            });
-            TableCell cell = new TableCell();
-            cell.setGraphic(btn);
-            return cell;
-        });
-        this.tbvQLCX.getColumns().addAll(clAction);
-        
-//        list1 = (ObservableList<QLCXs>) JdbcUtils.getQLCXs();
-//        tbvQLCX.setItems(list1);
+        colngaykh.setCellValueFactory(new PropertyValueFactory<>("ngaykh"));
+        colgiave.setCellValueFactory(new PropertyValueFactory<>("giave"));
+        coltennv.setCellValueFactory(new PropertyValueFactory<>("tennv"));
+        colsdtnv.setCellValueFactory(new PropertyValueFactory<>("sdtnv"));
+
     }
     public void Edit(){
         try {
@@ -207,7 +183,7 @@ public class AddChuyenXeController implements Initializable {
             String value7 = txtgiave.getText();
             String value8 = txttennv.getText();
             String value9 = txtsdtnv.getText();
-            String sql = "UPDATE qlcx set idQLCX= '"+value1+"', QLCXtencx= '"+value2+"',QLCXbsx= '"+value3+"',QLCXloaixe= '"+
+            String sql = "UPDATE qlcx set idQLCX= '"+value1+ "', QLCXtencx= '"+value2+"',QLCXbsx= '"+value3+"',QLCXloaixe= '"+
                     value4+"',QLCXngaykh= '"+value5+"',QLCXgiokh= '"+value6+"',QLCXgiave= '"+
                     value7+"',QLCXtennv= '"+value8+"',QLCXsdtnv= '"+value9+"' where idQLCX = '"+value1+"'";
             pst = conn.prepareStatement(sql);
@@ -215,25 +191,74 @@ public class AddChuyenXeController implements Initializable {
             JOptionPane.showMessageDialog(null, "update");
             tbvQLCX.getItems().clear();
             UpdateQLCX();
+//            FindCX();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-//    public void DeleteQLCX(String id) throws SQLException{
-//        Connection conn = JdbcUtils.getConnection();
-//        String sql = "DELETE FROM qlcx where idQLCX = ?";
-//        conn.setAutoCommit(false);
-////        try {
-//            pst = conn.prepareStatement(sql);
-//            pst.setString(1, getId());
-//            pst.executeUpdate();
-////            JOptionPane.showMessageDialog(null, "delete");
-////            tbvQLCX.getItems().clear();
-////            UpdateQLCX();
-////        } catch (Exception e) {
-////            JOptionPane.showMessageDialog(null, e);
-////        }
-//        conn.commit();
+    public void DeleteQLCX(){
+        conn = JdbcUtils.getConnection();
+        String sql = "DELETE FROM qlcx where idQLCX = ?";
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txtid.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "delete");
+            tbvQLCX.getItems().clear();
+            UpdateQLCX();
+//            FindCX();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+//    @FXML
+//    void FindCX() throws SQLException{
+//        colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
+//        colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
+//        colloaixe.setCellValueFactory(new PropertyValueFactory<>("loaixe"));
+//        colgiokh.setCellValueFactory(new PropertyValueFactory<>("giokh"));
+//        //date
+//        colngaykh.setCellValueFactory(new PropertyValueFactory<>("ngaykh"));
+//        colgiave.setCellValueFactory(new PropertyValueFactory<>("giave"));
+//        coltennv.setCellValueFactory(new PropertyValueFactory<>("tennv"));
+//        colsdtnv.setCellValueFactory(new PropertyValueFactory<>("sdtnv"));
+//        
+//        dataList =  (ObservableList<QLCXs>) QLCXsServices.getDataQLCXs();
+//        tbvQLCX.setItems(dataList);
+//        FilteredList<QLCXs> filteredData = new FilteredList<>(dataList, b -> true);
+//        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+//            filteredData.setPredicate((QLCXs person) -> {
+//                                    if (newValue == null || newValue.isEmpty()){
+//                                        return true;
+//                                    }
+//                                    String lowerCaSeFilter = newValue.toLowerCase();
+//                                    
+//                                    if (person.getTencx().toLowerCase().indexOf(lowerCaSeFilter) != -1){
+//                                        return true;
+//                                    } else if (person.getBsx().toLowerCase().indexOf(lowerCaSeFilter) != -1){
+//                                        return true;
+//                                    }else if (person.getGiokh().toLowerCase().indexOf(lowerCaSeFilter) != -1){
+//                                            return true;
+//                                    }else if (person.getNgaykh().toLowerCase().indexOf(lowerCaSeFilter) != -1){
+//                                            return true;
+//                                    }else if (person.getGiave().toLowerCase().indexOf(lowerCaSeFilter) != -1){
+//                                            return true;        
+//                                    }else if (person.getTennv().toLowerCase().indexOf(lowerCaSeFilter) != -1){
+//                                            return true; 
+//                                    }else 
+//                                       if ( person.getSdtnv().toLowerCase().indexOf(lowerCaSeFilter) != -1)
+//                                           return true;
+//                                           else
+//                                                return false;
+//                                                   
+//            });                                                                             
+//        });
+//        SortedList<QLCXs> sortedData = new SortedList<>(filteredData);
+//        sortedData.comparatorProperty().bind(tbvQLCX.comparatorProperty());
+//        tbvQLCX.setItems(sortedData);
+//        
 //    }
-    
 }
+    
+
