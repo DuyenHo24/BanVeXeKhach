@@ -7,6 +7,7 @@ package com.mycompany.htbanve;
 
 import com.mycompany.htbanve.pojo.QLCXs;
 import com.mycompany.htbanve.service.JdbcUtils;
+import com.mycompany.htbanve.service.QLCXsServices;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.net.URL;
@@ -22,12 +23,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -78,6 +79,7 @@ public class AddChuyenXeController implements Initializable {
     
     ObservableList<QLCXs> list1;
     int index = -1;
+    Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst;
     
@@ -105,6 +107,7 @@ public class AddChuyenXeController implements Initializable {
         if ("".equals(txtid.getText()) ||"".equals(txttencx.getText()) || "".equals(txtbsx.getText()) || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()))
         {
+            
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
         }
         else{     
@@ -131,25 +134,26 @@ public class AddChuyenXeController implements Initializable {
             }
         }        
     }
-//    void getSelected(MouseEvent event){
-//        index = tbvQLCX.getSelectionModel().getSelectedIndex();
-//        if(index <= -1){
-//            return;
-//        }
-//        txtid.setText(colid.getCellData(index).toString());
-//        txttencx.setText(colNameCX.getCellData(index));
-//        txtbsx.setText(colbsx.getCellData(index));
-//        txtloaixe.setText(colloaixe.getCellData(index));
-//        //date
-//        txtngaykh.setText(colngaykh.getCellData(index));
-//        txtgiokh.setText(colgiokh.getCellData(index));
-//        txtgiave.setText(colgiave.getCellData(index));
-//        txttennv.setText(coltennv.getCellData(index));
-//        txtsdtnv.setText(colsdtnv.getCellData(index));
-//        
-//    }
+    @FXML
+    void getSelected (MouseEvent event){
+        index = tbvQLCX.getSelectionModel().getSelectedIndex();
+        if(index <= -1){
+            return;
+        }
+        txtid.setText(colid.getCellData(index).toString());
+        txttencx.setText(colNameCX.getCellData(index).toString());
+        txtbsx.setText(colbsx.getCellData(index).toString());
+        txtloaixe.setText(colloaixe.getCellData(index).toString());
+        //date
+        txtngaykh.setText(colngaykh.getCellData(index).toString());
+        txtgiokh.setText(colgiokh.getCellData(index).toString());
+        txtgiave.setText(colgiave.getCellData(index).toString());
+        txttennv.setText(coltennv.getCellData(index).toString());
+        txtsdtnv.setText(colsdtnv.getCellData(index).toString());
+        
+    }
     public void UpdateQLCX() throws SQLException{
-        this.tbvQLCX.getItems().addAll(JdbcUtils.getDataQLCXs());
+        this.tbvQLCX.getItems().addAll(QLCXsServices.getDataQLCXs());
         colid.setCellValueFactory(new PropertyValueFactory<QLCXs,Integer>("id"));
         colNameCX.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<QLCXs,String>("bsx"));
@@ -192,7 +196,7 @@ public class AddChuyenXeController implements Initializable {
     }
     public void Edit(){
         try {
-            Connection conn = JdbcUtils.getConnection();
+            conn = JdbcUtils.getConnection();
             String value1 = txtid.getText();
             String value2 = txttencx.getText();
             String value3 = txtbsx.getText();

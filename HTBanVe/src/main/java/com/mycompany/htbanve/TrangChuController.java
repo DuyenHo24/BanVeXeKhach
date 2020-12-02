@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -17,7 +18,16 @@ import javafx.fxml.Initializable;
  * @author ASUS-LAPTOP
  */
 public class TrangChuController implements Initializable {
+    
+    @FXML
+    private Button Adminbt;
 
+    @FXML
+    private Button KHbt;
+
+    @FXML
+    private Button exitbt;
+    
     @FXML
     public void SwitchtoAddCX() throws IOException {
         App.setRoot("AddChuyenXe");
@@ -42,7 +52,7 @@ public class TrangChuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }
 
 }
