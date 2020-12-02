@@ -55,7 +55,7 @@
             <TextField fx:id="txtngaykh" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <TableView fx:id="tbvQLCX" layoutX="524.0" layoutY="103.0" prefHeight="459.0" prefWidth="796.0">
+      <TableView fx:id="tbvQLCX" layoutX="524.0" layoutY="103.0" prefHeight="459.0" prefWidth="855.0">
         <columns>
           <TableColumn fx:id="colid" prefWidth="43.199951171875" text="ID" />
           <TableColumn fx:id="colNameCX" prefWidth="102.4000244140625" text="Tên chuyến xe" />
@@ -70,6 +70,5 @@
       </TableView>
       <Button layoutX="193.0" layoutY="584.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="120.0" text="Update" />
       <Button layoutX="14.0" layoutY="584.0" mnemonicParsing="false" onAction="#AddQLCX" prefHeight="31.0" prefWidth="152.0" text="Lưu chuyến xe" />
-      <Button layoutX="342.0" layoutY="584.0" mnemonicParsing="false" onAction="#DeleteQLCX" prefHeight="31.0" prefWidth="110.0" text="Delete" />
    </children>
 </AnchorPane>
