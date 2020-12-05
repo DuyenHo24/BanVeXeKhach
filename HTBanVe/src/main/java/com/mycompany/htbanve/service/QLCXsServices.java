@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -27,23 +29,30 @@ public class QLCXsServices {
         
         List<QLCXs> results = new ArrayList<>();
         while(rs.next()){
-            QLCXs c = new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv"),rs.getString("QLCXsdtnv"));  
+            QLCXs c = new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx")
+                    ,rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave")
+                    ,rs.getString("QLCXtennv"),rs.getString("QLCXsdtnv"),rs.getString("QLCXghe"));  
             results.add(c);
         }
         return results;
     }
-    public static List<QLCXs> getQLCXs() throws SQLException{
-        String sql = "Select * from qlcx";
+    public static ObservableList<QLCXs> getDataQLCX(){
         Connection conn = JdbcUtils.getConnection();
-        PreparedStatement stm = conn.prepareStatement(sql);
-        ResultSet rs = stm.executeQuery();
-        List<QLCXs> qlcxs = new ArrayList<>();
-        while(rs.next()){
-            QLCXs c = new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv"),rs.getString("QLCXsdtnv"));
-            qlcxs.add(c);
+        ObservableList<QLCXs> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from qlcx");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                 list.add(new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx")
+                         ,rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh")
+                         ,rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv")
+                         ,rs.getString("QLCXsdtnv"),rs.getString("QLCXghe")));  
+
+            }
+        } catch (Exception e) {
         }
-        
-        return qlcxs;
+        return list;
     }
-    
 }
+
+

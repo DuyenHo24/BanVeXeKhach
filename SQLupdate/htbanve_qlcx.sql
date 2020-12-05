@@ -32,6 +32,7 @@ CREATE TABLE `qlcx` (
   `QLCXtennv` varchar(45) NOT NULL,
   `QLCXsdtnv` varchar(45) NOT NULL,
   `QLCXloaixe` varchar(45) NOT NULL,
+  `QLCXghe` varchar(45) NOT NULL,
   PRIMARY KEY (`idQLCX`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -42,7 +43,7 @@ CREATE TABLE `qlcx` (
 
 LOCK TABLES `qlcx` WRITE;
 /*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (0,'DL->NA','dfasf546','14:00','20/11/2020','10000000','Tung','0546846156168','Vip'),(1,'asd','sadasd','sad','sad','dsa','das','asd','sad'),(2,'','sadasd','15:00','2020-11-30','200000','tung','065468431','vip'),(3,'Tung and Duyen','sadasd','15:00','2020-11-30','200000','tung','065468431','vip'),(4,'DL->NA','dfasf546','14:00','20/11/2020','200000','Tung','0546846156168','Vip'),(5,'HN->VT','H5N1','12:00','1/12/2020','1000000','Tung','0823771887','Vip');
+INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','10'),(2,'','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','10'),(3,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','9'),(4,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','9'),(6,'HN->SG','H5N1','20:30','2020-11-30','200000','tung','0823771887','Thuong','9');
 /*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-02 23:29:09
+-- Dump completed on 2020-12-05 14:24:56
