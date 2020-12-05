@@ -5,7 +5,6 @@
  */
 package com.mycompany.htbanve.service;
 
-import com.mycompany.htbanve.pojo.QLCXs;
 import java.sql.DriverManager;
 
 import java.sql.SQLException;
@@ -29,7 +28,7 @@ public class JdbcUtils {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/htbanve",
                             "root","123456789");
-                JOptionPane.showMessageDialog(null,"Connection Established");
+                JOptionPane.showMessageDialog(null,"Kết nối dữ liệu thành công !!!");
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null, e);
             }catch(SQLException ex){
@@ -39,17 +38,6 @@ public class JdbcUtils {
     }
    
     public static Connection getConnection(){
-//        Connection conn = ConnectDb();
-//        ObservableList<QLCXs> list = FXCollections.observableArrayList();
-//        try{
-//            PreparedStatement ps = conn.prepareStatement( "SELECT * FROM htbanve.qlcx");
-//            ResultSet rs = ps.executeQuery();
-//            while(rs.next()){
-//                list.add(new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv"),rs.getString("QLCXstdnv")));
-//                
-//            }
-//        } catch (SQLException e){       
-//        }
         return conn;
     }
     

@@ -2,45 +2,238 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="553.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.QuanLyVeXeController">
+<AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1518.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.QuanLyVeXeController">
    <children>
-      <TabPane layoutX="16.0" layoutY="19.0" prefHeight="559.0" prefWidth="945.0" tabClosingPolicy="UNAVAILABLE">
-         <tabs>
-            <Tab text="Thông tin vé xe">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="945.0">
-                     <children>
-                        <Label layoutX="23.0" layoutY="17.0" prefHeight="17.0" prefWidth="89.0" text="Tìm thông tin:" />
-                        <TextField layoutX="114.0" layoutY="13.0" prefHeight="25.0" prefWidth="313.0" />
-                        <Button layoutX="445.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Tìm" />
-                        <TableView layoutX="23.0" layoutY="43.0" prefHeight="415.0" prefWidth="905.0">
-                           <columns>
-                              <TableColumn prefWidth="41.33333969116211" text="STT" />
-                              <TableColumn prefWidth="100.66669464111328" text="Tên chuyến xe" />
-                              <TableColumn prefWidth="74.66668701171875" text="Biển số xe" />
-                              <TableColumn prefWidth="69.3333740234375" text="Loại xe" />
-                              <TableColumn text="Ngày KH" />
-                              <TableColumn prefWidth="58.0" text="Giờ KH" />
-                              <TableColumn prefWidth="89.33334350585938" text="Giá vé" />
-                              <TableColumn prefWidth="71.33331298828125" text="Ghế" />
-                              <TableColumn prefWidth="134.6666259765625" text="Họ tên khách hàng" />
-                              <TableColumn prefWidth="94.6666259765625" text="Số điện thoại" />
-                              <TableColumn prefWidth="88.6666259765625" text="Chức năng" />
-                           </columns>
-                        </TableView>
-                        <Button layoutX="414.0" layoutY="470.0" mnemonicParsing="false" onAction="#QuayLai" text="Quay Lại" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-         </tabs>
-      </TabPane>
+      <AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1567.0">
+         <children>
+            <Button layoutX="1394.0" layoutY="43.0" mnemonicParsing="false" onAction="#QuayLaiTC" text="Quay lại" />
+            <GridPane layoutX="4.0" layoutY="85.0" prefHeight="475.0" prefWidth="505.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="161.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="617.0" minWidth="10.0" prefWidth="482.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label prefHeight="21.0" prefWidth="150.0" text="Tên chuyến xe :" />
+                  <Label text="Biển số xe :" GridPane.rowIndex="1" />
+                  <Label text="Loại xe :" GridPane.rowIndex="2" />
+                  <Label text="Ngày khởi hành :" GridPane.rowIndex="3" />
+                  <Label text="Giờ khởi hành :" GridPane.rowIndex="4" />
+                  <Label text="Giá vé :" GridPane.rowIndex="5" />
+                  <Label text="Mô tả :" GridPane.rowIndex="9" />
+                  <Label text="Tên nhân viên  :" GridPane.rowIndex="10" />
+                  <Label text="SĐT liên hệ :" GridPane.rowIndex="11" />
+                  <TextArea disable="true" prefHeight="200.0" prefWidth="200.0" text="Hành khách có mặt tại văn phòng trước giờ khởi hành !&#10;To be present at this office before departure time !" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Label text="Họ tên khách :" GridPane.rowIndex="7" />
+                  <Label text="SDT khách :" GridPane.rowIndex="8" />
+                  <TextField fx:id="txttenkh" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="txtsdtkh" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="txttencx" disable="true" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtbsx" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtloaixe" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtngaykh" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtgiokh" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtgiave" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txttennv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <TextField fx:id="txtsdtnv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <Label text="Ghế :" GridPane.rowIndex="6" />
+                  <TextField fx:id="txtsoghe" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+            <TableView fx:id="tbvQLBV" layoutX="555.0" layoutY="112.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="998.0">
+               <columns>
+                  <TableColumn fx:id="colNameCX" prefWidth="102.4000244140625" text="Tên chuyến xe" />
+                  <TableColumn fx:id="colbsx" prefWidth="82.39996337890625" text="Biển số xe" />
+                  <TableColumn fx:id="colloaixe" prefWidth="64.79998779296875" text="Loại xe" />
+                  <TableColumn fx:id="colngaykh" prefWidth="94.39996337890625" text="Ngày khởi hành" />
+                  <TableColumn fx:id="colgiokh" prefWidth="98.39996337890625" text="Giờ khởi hành" />
+                  <TableColumn fx:id="colgiave" prefWidth="86.4000244140625" text="Giá vé" />
+                  <TableColumn fx:id="coltenkh" prefWidth="101.5999755859375" text="Tên khách hàng" />
+                  <TableColumn fx:id="colsdtkh" prefWidth="95.99997558593748" text="SDT khách" />
+                  <TableColumn fx:id="coltennv" prefWidth="90.39990234375" text="Tên nhân viên" />
+                  <TableColumn fx:id="colsdtnv" prefWidth="104.79997558593755" text="SDT nhân viên" />
+                  <TableColumn fx:id="colghe" prefWidth="75.0" text="Ghế" />
+               </columns>
+            </TableView>
+            <Button layoutX="14.0" layoutY="584.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="152.0" text="Cập nhật" />
+            <TextField fx:id="filterField" layoutX="729.0" layoutY="43.0" prefHeight="26.0" prefWidth="342.0" />
+            <Label layoutX="164.0" layoutY="15.0" prefHeight="55.0" prefWidth="358.0" text="QUẢN LÝ VÉ XE">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="39.0" />
+               </font>
+            </Label>
+            <Label layoutX="633.0" layoutY="47.0" prefHeight="18.0" prefWidth="90.0" text="Tìm chuyến xe :" />
+            <Label layoutX="520.0" layoutY="93.0" prefHeight="38.0" prefWidth="18.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="520.0" layoutY="131.0" prefHeight="38.0" prefWidth="18.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="520.0" layoutY="169.0" prefHeight="38.0" prefWidth="18.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="520.0" layoutY="214.0" prefHeight="38.0" prefWidth="18.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="520.0" layoutY="252.0" prefHeight="38.0" prefWidth="18.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="520.0" layoutY="290.0" prefHeight="26.0" prefWidth="18.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="523.0" layoutY="330.0" prefHeight="18.0" prefWidth="2.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="523.0" layoutY="493.0" prefHeight="18.0" prefWidth="2.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="523.0" layoutY="541.0" prefHeight="18.0" prefWidth="2.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="523.0" layoutY="375.0" prefHeight="18.0" prefWidth="2.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="523.0" layoutY="413.0" prefHeight="18.0" prefWidth="2.0" text="*">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f00b0b57" />
+                        <Stop color="#cd201357" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Button layoutX="238.0" layoutY="584.0" mnemonicParsing="false" onAction="#DeleteQLBV" prefHeight="31.0" prefWidth="152.0" text="Xóa" />
+            <Button layoutX="678.0" layoutY="603.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="93.0" text="Xuất vé" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

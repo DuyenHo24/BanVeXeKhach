@@ -11,9 +11,9 @@ package com.mycompany.htbanve.pojo;
  */
 public class QLCXs {
     private int id;
-    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe;
+    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,ghe;
     private String ngaykh;
-    public QLCXs(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv) {
+    public QLCXs(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv,String ghe) {
         this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
@@ -23,7 +23,15 @@ public class QLCXs {
         this.giave = giave;
         this.tennv = tennv;
         this.sdtnv = sdtnv;
-        
+        this.ghe = ghe;
+    }
+
+    public void setGhe(String ghe) {
+        this.ghe = ghe;
+    }
+
+    public String getGhe() {
+        return ghe;
     }
 
     public void setId(int id) {
