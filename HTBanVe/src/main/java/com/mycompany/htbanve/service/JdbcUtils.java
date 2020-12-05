@@ -27,7 +27,7 @@ public class JdbcUtils {
         try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/htbanve",
-                            "root","123456789");
+                            "root","htmd_240700");
                 JOptionPane.showMessageDialog(null,"Kết nối dữ liệu thành công !!!");
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null, e);

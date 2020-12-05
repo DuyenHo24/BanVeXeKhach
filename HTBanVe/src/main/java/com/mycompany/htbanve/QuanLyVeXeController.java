@@ -7,7 +7,7 @@ package com.mycompany.htbanve;
 
 import com.mycompany.htbanve.pojo.QLBV;
 import com.mycompany.htbanve.service.JdbcUtils;
-import com.mycompany.htbanve.service.QLBVService;
+import com.mycompany.htbanve.service.QLBVServices;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -129,9 +129,9 @@ public class QuanLyVeXeController implements Initializable {
     }
     // Load dl len table view
     public void UpdateQLBV() throws SQLException{
-        ObservableList<QLBV> data = FXCollections.observableArrayList(QLBVService.getDataQLBV2());
+        ObservableList<QLBV> data = FXCollections.observableArrayList(QLBVServices.getDataQLBV2());
         tbvQLBV.setItems(data);
-        this.tbvQLBV.getItems().addAll(QLBVService.getDataQLBV());
+        this.tbvQLBV.getItems().addAll(QLBVServices.getDataQLBV());
         colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
         colloaixe.setCellValueFactory(new PropertyValueFactory<>("loaixe"));
@@ -214,7 +214,7 @@ public class QuanLyVeXeController implements Initializable {
     }
     @FXML
     void FindCX() throws SQLException {
-        dataList = QLBVService.getDataQLBV2();
+        dataList = QLBVServices.getDataQLBV2();
         tbvQLBV.setItems(dataList);
         FilteredList<QLBV> filteredData = new FilteredList<>(dataList, b -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {

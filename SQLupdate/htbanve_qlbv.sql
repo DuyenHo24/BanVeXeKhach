@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: htbanve
+-- Host: localhost    Database: htbanve
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -44,7 +44,7 @@ CREATE TABLE `qlbv` (
 
 LOCK TABLES `qlbv` WRITE;
 /*!40000 ALTER TABLE `qlbv` DISABLE KEYS */;
-INSERT INTO `qlbv` VALUES ('DL->NA','dfasf546','14:00','20/11/2020','200000','Vip','Tan thanh','0336051115','Tan thanh','0336051115',''),('Tung and Duyen','sadasd','15:00','2020-11-30','200000','vip','Hang','082345654','Hang','082345654','A03');
+INSERT INTO `qlbv` VALUES ('asd','sadasd','sad','sad','dsa','sad','duyen','0812881212','duyen','0812881212',''),('DL->NA','dfasf546','14:00','20/11/2020','200000','Vip','Tan thanh','0336051115','Tan thanh','0336051115',''),('HN->SG','H5N1','20:30','2020-11-30','200000','Thuong','Lam','32456789','Lam','32456789','8'),('tahnh lam','sadasd','15:00','2020-11-30','200000','vip','Quang Tung','1234567890','Quang Tung','1234567890',''),('Tung and Duyen','sadasd','15:00','2020-11-30','200000','vip','Hang','082345654','Hang','082345654','A03');
 /*!40000 ALTER TABLE `qlbv` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 14:24:57
+-- Dump completed on 2020-12-05 16:36:47
