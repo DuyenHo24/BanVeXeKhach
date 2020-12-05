@@ -120,6 +120,7 @@ public class QuanLyVeXeController implements Initializable {
             // lay ham bo vao main tu dong load
             UpdateQLBV();
             FindCX();
+            
         } catch (SQLException ex) {
             Logger.getLogger(MuaVeController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -131,7 +132,6 @@ public class QuanLyVeXeController implements Initializable {
     public void UpdateQLBV() throws SQLException{
         ObservableList<QLBV> data = FXCollections.observableArrayList(QLBVServices.getDataQLBV2());
         tbvQLBV.setItems(data);
-        this.tbvQLBV.getItems().addAll(QLBVServices.getDataQLBV());
         colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
         colloaixe.setCellValueFactory(new PropertyValueFactory<>("loaixe"));

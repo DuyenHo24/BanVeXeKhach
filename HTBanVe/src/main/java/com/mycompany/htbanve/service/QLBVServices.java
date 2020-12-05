@@ -27,7 +27,7 @@ public class QLBVServices {
         ResultSet rs = stm.executeQuery("Select * From qlbv");
         List<QLBV> results = new ArrayList<>();
         while(rs.next()) {
-            QLBV c = new QLBV(rs.getString("QLBVtencx"), rs.getString("QLBVbsx"), rs.getString("QLBVgiokh")
+            QLBV c = new QLBV(rs.getString("QLBVid"),rs.getString("QLBVtencx"), rs.getString("QLBVbsx"), rs.getString("QLBVgiokh")
                     , rs.getString("QLBVgiave"), rs.getString("QLBVtennv"), rs.getString("QLBVsdtnv")
                     , rs.getString("QLBVloaixe"), rs.getString("QLBVtenkh"), rs.getString("QLBVsdtkh")
                     , rs.getString("QLBVngaykh"),rs.getString("QLBVghe"));  
@@ -42,7 +42,7 @@ public class QLBVServices {
             PreparedStatement ps = conn.prepareStatement("select * from qlbv");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                 list.add(new QLBV(rs.getString("QLBVtencx"), rs.getString("QLBVbsx"), rs.getString("QLBVgiokh")
+                 list.add(new QLBV(rs.getString("QLBVid"),rs.getString("QLBVtencx"), rs.getString("QLBVbsx"), rs.getString("QLBVgiokh")
                          , rs.getString("QLBVgiave"), rs.getString("QLBVtennv"), rs.getString("QLBVsdtnv")
                          , rs.getString("QLBVloaixe"), rs.getString("QLBVtenkh"), rs.getString("QLBVsdtkh")
                          , rs.getString("QLBVngaykh"),rs.getString("QLBVghe")));  

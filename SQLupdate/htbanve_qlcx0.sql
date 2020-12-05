@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: localhost    Database: htbanve
+-- Host: 127.0.0.1    Database: htbanve
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -43,7 +43,7 @@ CREATE TABLE `qlcx` (
 
 LOCK TABLES `qlcx` WRITE;
 /*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','9'),(2,'','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','10'),(3,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','8'),(4,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','8'),(6,'HN->SG','H5N1','20:30','2020-11-30','200000','tung','0823771887','Thuong','7');
+INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','9'),(2,'tahnh lam','sadasd','15:00','2020-12-05','200000','tung','065468431','vip','7'),(3,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','7'),(4,'tahnh lam','sadasd','15:00','2020-12-18','200000','tung','065468431','vip','7');
 /*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 16:36:47
+-- Dump completed on 2020-12-05 23:05:47

@@ -11,13 +11,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+
 /**
  * FXML Controller class
  *
  * @author ASUS-LAPTOP
  */
 public class TrangChuController implements Initializable {
-    
+
     
     @FXML
     public void SwitchtoAddCX() throws IOException {
@@ -43,7 +44,8 @@ public class TrangChuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+//        String a = LocalDate.now().toString();
+//        tesst.setText(a);
     }
 
 }

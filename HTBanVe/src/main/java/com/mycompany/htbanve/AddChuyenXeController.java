@@ -23,11 +23,11 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
@@ -51,7 +51,7 @@ public class AddChuyenXeController implements Initializable {
     @FXML
     private TableColumn<QLCXs, String> colgiokh;
     @FXML
-    private TableColumn<QLCXs, String> colngaykh;
+    private TableColumn<QLCXs, DatePicker> colngaykh;
     @FXML
     private TableColumn<QLCXs, String> colgiave;
     @FXML
@@ -67,7 +67,7 @@ public class AddChuyenXeController implements Initializable {
     @FXML
     private TextField txtbsx;
     @FXML
-    private TextField txtngaykh;
+    private DatePicker txtngaykh;
     @FXML
     private TextField txtgiokh;
     @FXML
@@ -114,7 +114,7 @@ public class AddChuyenXeController implements Initializable {
          conn = JdbcUtils.getConnection();
         //date
         if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
-                || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
+                || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getValue()) || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
                 || "".equals(txtghe.getText()))
         {
@@ -131,7 +131,7 @@ public class AddChuyenXeController implements Initializable {
                 pst.setString(3,txtbsx.getText());
                 pst.setString(4,txtgiokh.getText());
                 //date
-                pst.setString(5,txtngaykh.getText());
+                pst.setString(5,txtngaykh.getValue().toString());
                 pst.setString(6,txtgiave.getText());
                 pst.setString(7,txttennv.getText());
                 pst.setString(8,txtsdtnv.getText());
@@ -158,7 +158,6 @@ public class AddChuyenXeController implements Initializable {
         txtbsx.setText(colbsx.getCellData(index));
         txtloaixe.setText(colloaixe.getCellData(index));
         //date
-        txtngaykh.setText(colngaykh.getCellData(index));
         txtgiokh.setText(colgiokh.getCellData(index));
         txtgiave.setText(colgiave.getCellData(index));
         txttennv.setText(coltennv.getCellData(index));
@@ -169,7 +168,6 @@ public class AddChuyenXeController implements Initializable {
     public void UpdateQLCX() throws SQLException{
         ObservableList<QLCXs> data = FXCollections.observableArrayList(QLCXsServices.getDataQLCX());
         tbvQLCX.setItems(data);
-        this.tbvQLCX.getItems().addAll(QLCXsServices.getDataQLCXs());
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
@@ -185,7 +183,7 @@ public class AddChuyenXeController implements Initializable {
     }
     public void Edit(){
         if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
-                || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
+                || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getValue()) || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
                 || "".equals(txtghe.getText()))
         {
@@ -200,7 +198,7 @@ public class AddChuyenXeController implements Initializable {
             String value3 = txtbsx.getText();
             String value4 = txtloaixe.getText();
 //            LocalDate value4 = txtngaykh.getValue();
-            String value5 = txtngaykh.getText();
+            String value5 = txtngaykh.getValue().toString();
             String value6 = txtgiokh.getText();
             String value7 = txtgiave.getText();
             String value8 = txttennv.getText();

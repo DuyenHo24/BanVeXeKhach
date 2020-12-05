@@ -11,9 +11,10 @@ package com.mycompany.htbanve.pojo;
  */
 public class QLBV {
 
-    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,tenkh,sdtkh,ghe;
+    private String id,tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,tenkh,sdtkh,ghe;
     private String ngaykh;
-    public QLBV(String tencx, String bsx, String giokh, String giave, String tennv, String sdtnv, String loaixe, String tenkh, String sdtkh, String ngaykh,String ghe) {
+    public QLBV(String id,String tencx, String bsx, String giokh, String giave, String tennv, String sdtnv, String loaixe, String tenkh, String sdtkh, String ngaykh,String ghe) {
+        this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
         this.giokh = giokh;
@@ -25,6 +26,14 @@ public class QLBV {
         this.sdtkh = sdtkh;
         this.ngaykh = ngaykh;
         this.ghe = ghe;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
     public void setTencx(String tencx) {
         this.tencx = tencx;

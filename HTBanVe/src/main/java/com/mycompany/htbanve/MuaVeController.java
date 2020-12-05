@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -85,7 +86,7 @@ public class MuaVeController implements Initializable {
     public void UpdateQLCX() throws SQLException{
         ObservableList<QLCXs> data = FXCollections.observableArrayList(QLCXsServices.getDataQLCX());
         tbvQLCX.setItems(data);
-        this.tbvQLCX.getItems().addAll(QLCXsServices.getDataQLCXs());
+        
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
@@ -136,22 +137,24 @@ public class MuaVeController implements Initializable {
                   
         }else
         {                 
-            String sql = "INSERT INTO qlbv (QLBVtencx,QLBVbsx,QLBVgiokh,QLBVngaykh"
-                    + ",QLBVgiave,QLBVloaixe,QLBVtenkh,QLBVsdtkh,QLBVtennv,QLBVsdtnv,QLBVghe)values(?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO qlbv (QLBVid,QLBVtencx,QLBVbsx,QLBVgiokh,QLBVngaykh"
+                    + ",QLBVgiave,QLBVloaixe,QLBVtenkh,QLBVsdtkh,QLBVtennv,QLBVsdtnv,QLBVghe)values(?,?,?,?,?,?,?,?,?,?,?,?)";
             try {
                 pst = conn.prepareStatement(sql);
-                pst.setString(1,txttencx.getText());
-                pst.setString(2,txtbsx.getText());
-                pst.setString(3,txtgiokh.getText());
+                String rm = UUID.randomUUID().toString();
+                pst.setString(1, rm );
+                pst.setString(2,txttencx.getText());
+                pst.setString(3,txtbsx.getText());
+                pst.setString(4,txtgiokh.getText());
                 //date
-                pst.setString(4,txtngaykh.getText());
-                pst.setString(5,txtgiave.getText());
-                pst.setString(6,txtloaixe.getText());
-                pst.setString(7,txttenkh.getText());
-                pst.setString(8,txtsdtkh.getText());
-                pst.setString(9,txttenkh.getText());
-                pst.setString(10,txtsdtkh.getText());
-                pst.setString(11,txtMaGhe.getText()); 
+                pst.setString(5,txtngaykh.getText());
+                pst.setString(6,txtgiave.getText());
+                pst.setString(7,txtloaixe.getText());
+                pst.setString(8,txttenkh.getText());
+                pst.setString(9,txtsdtkh.getText());
+                pst.setString(10,txttennv.getText());
+                pst.setString(11,txtsdtnv.getText());
+                pst.setString(12,txtMaGhe.getText()); 
                 pst.execute();
                 try {
                     Integer a = (Integer.parseInt(txtghe.getText()) - 1);
