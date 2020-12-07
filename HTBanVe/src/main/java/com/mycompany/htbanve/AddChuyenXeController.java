@@ -92,7 +92,7 @@ public class AddChuyenXeController implements Initializable {
     
 
     public void QuayLai() throws IOException{
-        App.setRoot("TrangChu");
+        App.setRoot("ChonChucNang");
     }
     /**
      * Initializes the controller class.

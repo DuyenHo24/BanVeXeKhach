@@ -126,7 +126,7 @@ public class QuanLyVeXeController implements Initializable {
         }
     } 
     public void QuayLaiTC() throws IOException{
-        App.setRoot("TrangChu");
+        App.setRoot("ChonChucNang");
     }
     // Load dl len table view
     public void UpdateQLBV() throws SQLException{

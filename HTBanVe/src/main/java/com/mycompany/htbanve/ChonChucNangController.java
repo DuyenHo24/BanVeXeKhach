@@ -11,39 +11,35 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-
 /**
  * FXML Controller class
  *
  * @author ASUS-LAPTOP
  */
-public class TrangChuController implements Initializable {
+public class ChonChucNangController implements Initializable {
 
-    
+    /**
+     * Initializes the controller class.
+     */
+    @FXML 
+    public void SwitchtoQLVX() throws IOException{
+        App.setRoot("QuanLyVeXe");
+    }
     @FXML
-    public void SwitchtoLogin() throws IOException{
+    public void SwitchtoAddCX() throws IOException {
+        App.setRoot("AddChuyenXe");
+    }
+    @FXML
+    public void SwitchtoLogin() throws IOException {
         App.setRoot("Login");
     }
     @FXML
-    public void SwitchtoKH() throws IOException{
-        App.setRoot("Muave");
+    public void SwitchtoTC() throws IOException {
+        App.setRoot("TrangChu");
     }
-
-    
-    @FXML
-    public void ExitTC() throws IOException {
-        System.exit(0);
-    }
-        
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        String a = LocalDate.now().toString();
-//        tesst.setText(a);
-    }
-
+        // TODO
+    }    
+    
 }
