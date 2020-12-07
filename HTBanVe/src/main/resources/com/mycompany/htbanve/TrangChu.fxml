@@ -11,9 +11,8 @@
          <font>
             <Font name="System Bold Italic" size="21.0" />
          </font></Label>
-      <Button fx:id="Adminbt" layoutX="133.0" layoutY="111.0" mnemonicParsing="false" onAction="#SwitchtoAddCX" prefHeight="33.0" prefWidth="134.0" text="Quản Lý Chuyến Xe" />
-      <Button fx:id="KHbt" layoutX="133.0" layoutY="222.0" mnemonicParsing="false" onAction="#SwitchtoKH" prefHeight="33.0" prefWidth="134.0" text="Mua vé" />
-      <Button fx:id="exitbt" layoutX="177.0" layoutY="294.0" mnemonicParsing="false" onAction="#ExitTC" text="Thoát" />
-      <Button layoutX="133.0" layoutY="166.0" mnemonicParsing="false" onAction="#SwitchtoQLVX" prefHeight="33.0" prefWidth="134.0" text="Quản Lý Vé Xe" />
+      <Button fx:id="KHbt" layoutX="243.0" layoutY="175.0" mnemonicParsing="false" onAction="#SwitchtoKH" prefHeight="33.0" prefWidth="134.0" text="Khách hàng/Mua vé" />
+      <Button fx:id="exitbt" layoutX="182.0" layoutY="256.0" mnemonicParsing="false" onAction="#ExitTC" text="Thoát" />
+      <Button layoutX="31.0" layoutY="175.0" mnemonicParsing="false" onAction="#SwitchtoLogin" prefHeight="33.0" prefWidth="134.0" text="Admin" />
    </children>
 </AnchorPane>

@@ -16,35 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `qlcx`
+-- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `qlcx`;
+DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qlcx` (
-  `idQLCX` int NOT NULL,
-  `QLCXtencx` varchar(45) NOT NULL,
-  `QLCXbsx` varchar(45) NOT NULL,
-  `QLCXgiokh` varchar(45) NOT NULL,
-  `QLCXngaykh` varchar(45) NOT NULL,
-  `QLCXgiave` varchar(45) NOT NULL,
-  `QLCXtennv` varchar(45) NOT NULL,
-  `QLCXsdtnv` varchar(45) NOT NULL,
-  `QLCXloaixe` varchar(45) NOT NULL,
-  `QLCXghe` varchar(45) NOT NULL,
-  PRIMARY KEY (`idQLCX`)
+CREATE TABLE `admin` (
+  `Admintk` varchar(45) NOT NULL,
+  `Adminpass` varchar(45) NOT NULL,
+  `Adminemail` varchar(45) NOT NULL,
+  PRIMARY KEY (`Admintk`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `qlcx`
+-- Dumping data for table `admin`
 --
 
-LOCK TABLES `qlcx` WRITE;
-/*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','9'),(2,'tahnh lam','sadasd','15:00','2020-12-05','200000','tung','065468431','vip','7'),(3,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','7'),(4,'tahnh lam','sadasd','15:00','2020-12-18','200000','tung','065468431','vip','7');
-/*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES ('Lam','123456','Lam@gmail.com'),('tung','123456','tung@gmail.com');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 23:05:47
+-- Dump completed on 2020-12-07 13:47:22

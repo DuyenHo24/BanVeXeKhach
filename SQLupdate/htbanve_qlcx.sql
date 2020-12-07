@@ -16,37 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `qlbv`
+-- Table structure for table `qlcx`
 --
 
-DROP TABLE IF EXISTS `qlbv`;
+DROP TABLE IF EXISTS `qlcx`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qlbv` (
-  `QLBVid` varchar(45) NOT NULL,
-  `QLBVtencx` varchar(45) NOT NULL,
-  `QLBVbsx` varchar(45) NOT NULL,
-  `QLBVgiokh` varchar(45) NOT NULL,
-  `QLBVngaykh` varchar(45) NOT NULL,
-  `QLBVgiave` varchar(45) NOT NULL,
-  `QLBVloaixe` varchar(45) NOT NULL,
-  `QLBVtenkh` varchar(45) NOT NULL,
-  `QLBVsdtkh` varchar(45) NOT NULL,
-  `QLBVtennv` varchar(45) NOT NULL,
-  `QLBVsdtnv` varchar(45) NOT NULL,
-  `QLBVghe` varchar(45) NOT NULL,
-  PRIMARY KEY (`QLBVid`)
+CREATE TABLE `qlcx` (
+  `idQLCX` int NOT NULL,
+  `QLCXtencx` varchar(45) NOT NULL,
+  `QLCXbsx` varchar(45) NOT NULL,
+  `QLCXgiokh` varchar(45) NOT NULL,
+  `QLCXngaykh` varchar(45) NOT NULL,
+  `QLCXgiave` varchar(45) NOT NULL,
+  `QLCXtennv` varchar(45) NOT NULL,
+  `QLCXsdtnv` varchar(45) NOT NULL,
+  `QLCXloaixe` varchar(45) NOT NULL,
+  `QLCXghe` varchar(45) NOT NULL,
+  PRIMARY KEY (`idQLCX`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `qlbv`
+-- Dumping data for table `qlcx`
 --
 
-LOCK TABLES `qlbv` WRITE;
-/*!40000 ALTER TABLE `qlbv` DISABLE KEYS */;
-INSERT INTO `qlbv` VALUES ('03f3c3b3-0718-4f3f-913a-ef49cf8228d4','HN->SG','H5N1','20:30','2020-11-30','200000','Thuong','Ngan','12345878','tung','0823771887',''),('2a8cc918-a572-438c-99d1-a5ef9e8d391f','tahnh lam','sadasd','15:00','2020-12-05','200000','vip','Tung','08464123','tung','065468431',''),('a59e250e-ddac-4e0d-bb7d-e44346d19cd9','HN->SG','H5N1','20:30','2020-11-30','200000','Thuong','Dinh Long','12345878','tung','0823771887','');
-/*!40000 ALTER TABLE `qlbv` ENABLE KEYS */;
+LOCK TABLES `qlcx` WRITE;
+/*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
+INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','9'),(2,'tahnh lam','sadasd','15:00','2020-12-05','200000','tung','065468431','vip','7'),(3,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','7'),(4,'tahnh lam','sadasd','15:00','2020-12-18','200000','tung','065468431','vip','7');
+/*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 23:05:48
+-- Dump completed on 2020-12-07 13:47:23
