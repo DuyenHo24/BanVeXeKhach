@@ -5,7 +5,7 @@
  */
 package com.mycompany.htbanve;
 
-import com.mycompany.htbanve.pojo.QLCXs;
+import com.mycompany.htbanve.pojo.QLCX;
 import com.mycompany.htbanve.service.JdbcUtils;
 import com.mycompany.htbanve.service.QLCXsServices;
 import java.io.IOException;
@@ -39,8 +39,8 @@ public class MuaVeController implements Initializable {
 
     @FXML private TextField txttencx;
     @FXML private TextField txtbsx;
-    @FXML private TextField txtgiokh;@FXML
-    private TextField txttennv;
+    @FXML private TextField txtgiokh;
+    @FXML private TextField txttennv;
     @FXML private TextField txtsdtnv;
     @FXML private TextField txtloaixe;
     @FXML private TextField txtgiave;
@@ -50,22 +50,21 @@ public class MuaVeController implements Initializable {
     @FXML private TextField txtsdtkh;
     @FXML private TextField txtghe;
     @FXML private TextField txtMaGhe;
-    @FXML private TableView<QLCXs> tbvQLCX;
-    @FXML private TableColumn<QLCXs, Integer> colid;
-    @FXML private TableColumn<QLCXs, String> colNameCX;
-    @FXML private TableColumn<QLCXs, String> colbsx;
-    @FXML private TableColumn<QLCXs, String> colloaixe;
-    @FXML private TableColumn<QLCXs, String> colngaykh;
-    @FXML private TableColumn<QLCXs, String> colgiokh;
-    @FXML private TableColumn<QLCXs, String> colgiave;
-    @FXML private TableColumn<QLCXs, String> coltennv;
-    @FXML private TableColumn<QLCXs, String> colghe;
-    @FXML private TableColumn<QLCXs, String> colsdtnv;
+    @FXML private TableView<QLCX> tbvQLCX;
+    @FXML private TableColumn<QLCX, Integer> colid;
+    @FXML private TableColumn<QLCX, String> colNameCX;
+    @FXML private TableColumn<QLCX, String> colbsx;
+    @FXML private TableColumn<QLCX, String> colloaixe;
+    @FXML private TableColumn<QLCX, String> colngaykh;
+    @FXML private TableColumn<QLCX, String> colgiokh;
+    @FXML private TableColumn<QLCX, String> colgiave;
+    @FXML private TableColumn<QLCX, String> coltennv;
+    @FXML private TableColumn<QLCX, String> colghe;
+    @FXML private TableColumn<QLCX, String> colsdtnv;
     @FXML private TextField filterField;
     
-    ObservableList<QLCXs> dataList;
-    int index = -1;
-    
+    ObservableList<QLCX> dataList;
+    int index = -1;   
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst;
@@ -84,15 +83,13 @@ public class MuaVeController implements Initializable {
     }
     // Load dl len table view
     public void UpdateQLCX() throws SQLException{
-        ObservableList<QLCXs> data = FXCollections.observableArrayList(QLCXsServices.getDataQLCX());
-        tbvQLCX.setItems(data);
-        
+        ObservableList<QLCX> data = FXCollections.observableArrayList(QLCXsServices.getDataQLCX());
+        tbvQLCX.setItems(data);     
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
         colloaixe.setCellValueFactory(new PropertyValueFactory<>("loaixe"));
         colgiokh.setCellValueFactory(new PropertyValueFactory<>("giokh"));
-        //date
         colngaykh.setCellValueFactory(new PropertyValueFactory<>("ngaykh"));
         colgiave.setCellValueFactory(new PropertyValueFactory<>("giave"));
         coltennv.setCellValueFactory(new PropertyValueFactory<>("tennv"));
@@ -110,7 +107,6 @@ public class MuaVeController implements Initializable {
         txttencx.setText(colNameCX.getCellData(index));
         txtbsx.setText(colbsx.getCellData(index));
         txtloaixe.setText(colloaixe.getCellData(index));
-        //date
         txtngaykh.setText(colngaykh.getCellData(index));
         txtgiokh.setText(colgiokh.getCellData(index));
         txtgiave.setText(colgiave.getCellData(index));
@@ -128,8 +124,7 @@ public class MuaVeController implements Initializable {
                 || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
                 || "".equals(txttenkh.getText()) || "".equals(txtsdtkh.getText()) || "".equals(txtghe.getText()))
-        {
-            
+        {            
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
         }
         else if("0".equals(txtghe.getText())){
@@ -146,7 +141,6 @@ public class MuaVeController implements Initializable {
                 pst.setString(2,txttencx.getText());
                 pst.setString(3,txtbsx.getText());
                 pst.setString(4,txtgiokh.getText());
-                //date
                 pst.setString(5,txtngaykh.getText());
                 pst.setString(6,txtgiave.getText());
                 pst.setString(7,txtloaixe.getText());
@@ -159,63 +153,59 @@ public class MuaVeController implements Initializable {
                 try {
                     Integer a = (Integer.parseInt(txtghe.getText()) - 1);
                     String value1 = a.toString();
-                    String value2 = txttencx.getText();
-                    String sql1 = "UPDATE qlcx set QLCXghe= '"+value1+"' where QLCXtencx = '"+value2+"' ";
+                    String value2 = txtid.getText();
+                    String sql1 = "UPDATE qlcx set QLCXghe= '"+value1+"' where idQLCX = '"+value2+"' ";
                     pst = conn.prepareStatement(sql1);
                     pst.execute(); 
-                } catch (Exception e) {
+                } catch (SQLException e) {
                 }
-         
-
                 JOptionPane.showMessageDialog(null, "Quý khách đã đặt vé thành công \n"
                         + " Lưu ý : Hãy đến quầy nhân viên để nhận vé trong 30p !!! \n"
                         + "!!!!Quá 30p vé sẽ bị hủy!!!!\n"
                         + "Chân thành cảm ơn quý khách!!!");
                 UpdateQLCX();
                 FindCX();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }        
     }
-        @FXML
-        void FindCX() throws SQLException {
-            dataList = QLCXsServices.getDataQLCX();
-            tbvQLCX.setItems(dataList);
-            FilteredList<QLCXs> filteredData = new FilteredList<>(dataList, b -> true);
-            filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(person -> {
-                                        if (newValue == null || newValue.isEmpty()){
-                                            return true;
-                                        }
-                                        String lowerCaSeFilter = newValue.toLowerCase();
+    @FXML
+    void FindCX() throws SQLException {
+        dataList = QLCXsServices.getDataQLCX();
+        tbvQLCX.setItems(dataList);
+        FilteredList<QLCX> filteredData = new FilteredList<>(dataList, b -> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+        filteredData.setPredicate(person -> {
+                                    if (newValue == null || newValue.isEmpty()){
+                                        return true;
+                                    }
+                                    String lowerCaSeFilter = newValue.toLowerCase();
 
-                                        if (person.getTencx().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                    if (person.getTencx().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                        return true;
+                                    } else if (person.getBsx().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                        return true;
+                                    }else if (person.getLoaixe().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
                                             return true;
-                                        } else if (person.getBsx().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                    }else if (person.getGiokh().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
                                             return true;
-                                        }else if (person.getLoaixe().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
-                                                return true;
-                                        }else if (person.getGiokh().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
-                                                return true;
-                                        }else if (person.getNgaykh().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
-                                                return true;
-                                        }else if (person.getGiave().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
-                                                return true;        
-                                        }else if (person.getTennv().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
-                                                return true; 
-                                        }else 
-                                           if ( person.getSdtnv().toLowerCase().indexOf(lowerCaSeFilter) != -1)
-                                               return true;
-                                           
-                                               else
-                                                    return false;
+                                    }else if (person.getNgaykh().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                            return true;
+                                    }else if (person.getGiave().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                            return true;        
+                                    }else if (person.getTennv().toLowerCase().indexOf(lowerCaSeFilter) != -1) {
+                                            return true; 
+                                    }else 
+                                       if ( person.getSdtnv().toLowerCase().indexOf(lowerCaSeFilter) != -1)
+                                           return true;
 
-                });                                                                             
-            });
-            SortedList<QLCXs> sortedData = new SortedList<>(filteredData);
-            sortedData.comparatorProperty().bind(tbvQLCX.comparatorProperty());
-            tbvQLCX.setItems(sortedData);
-
-        }
+                                           else
+                                                return false;
+            });                                                                             
+        });
+        SortedList<QLCX> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tbvQLCX.comparatorProperty());
+        tbvQLCX.setItems(sortedData);
+    }
 }

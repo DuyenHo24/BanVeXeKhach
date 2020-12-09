@@ -5,7 +5,7 @@
  */
 package com.mycompany.htbanve.service;
 
-import com.mycompany.htbanve.pojo.QLCXs;
+import com.mycompany.htbanve.pojo.QLCX;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,29 +21,30 @@ import javafx.collections.ObservableList;
  * @author ASUS-LAPTOP
  */
 public class QLCXsServices {
+      
         
-    public static List<QLCXs> getDataQLCXs() throws SQLException{
+    public static List<QLCX> getDataQLCXs() throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery("Select * from qlcx");
         
-        List<QLCXs> results = new ArrayList<>();
+        List<QLCX> results = new ArrayList<>();
         while(rs.next()){
-            QLCXs c = new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx")
+            QLCX c = new QLCX(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx")
                     ,rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave")
                     ,rs.getString("QLCXtennv"),rs.getString("QLCXsdtnv"),rs.getString("QLCXghe"));  
             results.add(c);
         }
         return results;
     }
-    public static ObservableList<QLCXs> getDataQLCX(){
+    public static ObservableList<QLCX> getDataQLCX(){
         Connection conn = JdbcUtils.getConnection();
-        ObservableList<QLCXs> list = FXCollections.observableArrayList();
+        ObservableList<QLCX> list = FXCollections.observableArrayList();
         try {
             PreparedStatement ps = conn.prepareStatement("select * from qlcx");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                 list.add(new QLCXs(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx")
+                 list.add(new QLCX(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx")
                          ,rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh")
                          ,rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv")
                          ,rs.getString("QLCXsdtnv"),rs.getString("QLCXghe")));  
@@ -53,6 +54,8 @@ public class QLCXsServices {
         }
         return list;
     }
+    
+    
 }
 
 

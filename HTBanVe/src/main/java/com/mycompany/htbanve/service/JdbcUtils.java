@@ -32,10 +32,8 @@ public class JdbcUtils {
                 JOptionPane.showMessageDialog(null, e);
             }catch(SQLException ex){
                 Logger.getLogger(JdbcUtils.class.getName()).log(Level.SEVERE,null,ex);
-            }
-    
-    }
-   
+            }   
+    }  
     public static Connection getConnection(){
         return conn;
     }

@@ -5,14 +5,13 @@
  */
 package com.mycompany.htbanve;
 
-import com.mycompany.htbanve.service.AdminServices;
-import com.mysql.cj.xdevapi.PreparableStatement;
-import com.mysql.cj.xdevapi.Result;
+import com.mycompany.htbanve.service.JdbcUtils;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,9 +38,6 @@ public class LoginController implements Initializable {
     private PasswordField txtpass;
 
     @FXML
-    private Button txtxnlogin;
-
-    @FXML
     private AnchorPane panedangki;
 
     @FXML
@@ -52,9 +48,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField txtdkemail;
-
-    @FXML
-    private Button btxndk;
     
     Connection conn = null;
     ResultSet rs = null;
@@ -63,6 +56,8 @@ public class LoginController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -84,8 +79,8 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void AdminLogin(ActionEvent event){
-        conn = AdminServices.ConnectionAdmin();
+    public void AdminLogin(ActionEvent event) throws IOException{
+        conn = JdbcUtils.getConnection();
         String sql = "Select * from admin where Admintk = ? and Adminpass = ? ";
         try {
             pst = conn.prepareStatement(sql);
@@ -98,12 +93,12 @@ public class LoginController implements Initializable {
             }else
                 JOptionPane.showMessageDialog(null, "Sai tên đăng nhập hoặc mật khẩu");
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
     public void addAdmin(ActionEvent event){
-        conn = AdminServices.ConnectionAdmin();
+        conn = JdbcUtils.getConnection();
         String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
         try {
             pst = conn.prepareStatement(sql);
@@ -114,7 +109,7 @@ public class LoginController implements Initializable {
             JOptionPane.showMessageDialog(null, "Đăng kí thành công!");
             
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, e);
         }
     }

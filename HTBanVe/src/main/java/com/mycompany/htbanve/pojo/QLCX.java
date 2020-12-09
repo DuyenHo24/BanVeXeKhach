@@ -5,15 +5,18 @@
  */
 package com.mycompany.htbanve.pojo;
 
+import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
+import javafx.util.Callback;
+
 /**
  *
  * @author ASUS-LAPTOP
  */
-public class QLCXs {
+public class QLCX {
     private int id;
-    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,ghe;
-    private String ngaykh;
-    public QLCXs(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv,String ghe) {
+    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,ghe,ngaykh;
+    public QLCX(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv,String ghe) {
         this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
@@ -24,6 +27,10 @@ public class QLCXs {
         this.tennv = tennv;
         this.sdtnv = sdtnv;
         this.ghe = ghe;
+    }
+
+    public QLCX(String id, String text, String text0, String text1, String text2, Callback<DatePicker, DateCell> dayCellFactory, String text3, String text4, String text5) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void setGhe(String ghe) {
@@ -106,5 +113,4 @@ public class QLCXs {
     public String getSdtnv() {
         return sdtnv;
     }
-    
 }
