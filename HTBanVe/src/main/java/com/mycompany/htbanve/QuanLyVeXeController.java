@@ -67,11 +67,11 @@ public class QuanLyVeXeController implements Initializable {
     private TextField txtsdtkh;
     @FXML
     private TextField txtsoghe;
+    @FXML
+    private TextField txtidrandom;
 
     @FXML
     private TableView<QLBV> tbvQLBV;
-
-
     @FXML
     private TableColumn<QLBV, String> colNameCX;
 
@@ -103,12 +103,14 @@ public class QuanLyVeXeController implements Initializable {
     private TableColumn<QLBV, String> colsdtkh;
     @FXML
     private TextField filterField;
-    int index = -1;
+    @FXML
+    private TableColumn<QLBV, String> colidrandom;
     
+    int index = -1;
     ObservableList<QLBV> dataList;
     Connection conn = null;
     ResultSet rs = null;
-    PreparedStatement pst;
+    PreparedStatement pst = null;
     /**
      * Initializes the controller class.
      * @param url
@@ -132,11 +134,11 @@ public class QuanLyVeXeController implements Initializable {
     public void UpdateQLBV() throws SQLException{
         ObservableList<QLBV> data = FXCollections.observableArrayList(QLBVServices.getDataQLBV2());
         tbvQLBV.setItems(data);
+        colidrandom.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNameCX.setCellValueFactory(new PropertyValueFactory<>("tencx"));
         colbsx.setCellValueFactory(new PropertyValueFactory<>("bsx"));
         colloaixe.setCellValueFactory(new PropertyValueFactory<>("loaixe"));
         colgiokh.setCellValueFactory(new PropertyValueFactory<>("giokh"));
-        //date
         colngaykh.setCellValueFactory(new PropertyValueFactory<>("ngaykh"));
         colgiave.setCellValueFactory(new PropertyValueFactory<>("giave"));
         coltennv.setCellValueFactory(new PropertyValueFactory<>("tennv"));
@@ -144,7 +146,6 @@ public class QuanLyVeXeController implements Initializable {
         coltenkh.setCellValueFactory(new PropertyValueFactory<>("tenkh"));
         colsdtkh.setCellValueFactory(new PropertyValueFactory<>("sdtkh"));
         colghe.setCellValueFactory(new PropertyValueFactory<>("ghe"));
-
     }
     // Lay du lieu tu table view vao textfield
     @FXML
@@ -153,10 +154,10 @@ public class QuanLyVeXeController implements Initializable {
         if(index <= -1){
             return;
         }
+        txtidrandom.setText(colidrandom.getCellData(index));
         txttencx.setText(colNameCX.getCellData(index));
         txtbsx.setText(colbsx.getCellData(index));
         txtloaixe.setText(colloaixe.getCellData(index));
-        //date
         txtngaykh.setText(colngaykh.getCellData(index));
         txtgiokh.setText(colgiokh.getCellData(index));
         txtgiave.setText(colgiave.getCellData(index));
@@ -168,47 +169,40 @@ public class QuanLyVeXeController implements Initializable {
         
     }
     public void Edit(){
-        if ( "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
-                || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
-                || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
-                || "".equals(txtsoghe.getText()))
-        {
-            
+        if ( "".equals(txttenkh.getText()) || "".equals(txtsdtkh.getText()) 
+                || "".equals(txtsoghe.getText()) )
+        {           
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
         }
         else{     
         try {
             conn = JdbcUtils.getConnection();
-            String value3 = txttencx.getText();
+            String value3 = txtidrandom.getText();
             String value1 = txttenkh.getText();
             String value2 = txtsdtkh.getText();
-            String value4 = txtsoghe.getText();
-
-            
-            String sql = "UPDATE qlbv set QLBVtenkh= '"+value1+"',QLBVsdtkh= '"+value2+"',QLBVghe='"+value4+"' where QLBVtencx = '"+value3+"' ";
+            String value4 = txtsoghe.getText();          
+            String sql = "UPDATE qlbv set QLBVtenkh= '"+value1+"',QLBVsdtkh= '"+value2+"',QLBVghe='"+value4+"' where QLBVid = '"+value3+"' ";
             pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "update");
-            tbvQLBV.getItems().clear();
             UpdateQLBV();
             FindCX();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         }
     }
     public void DeleteQLBV(){
         conn = JdbcUtils.getConnection();
-        String sql = "DELETE FROM qlbv where QLBVtencx = ?";
+        String sql = "DELETE FROM qlbv where QLBVid = ?";
         try {
             pst = conn.prepareStatement(sql);
-            pst.setString(1, txttencx.getText());
+            pst.setString(1, txtidrandom.getText());
             pst.execute();
             JOptionPane.showMessageDialog(null, "delete");
-            tbvQLBV.getItems().clear();
             UpdateQLBV();
             FindCX();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }

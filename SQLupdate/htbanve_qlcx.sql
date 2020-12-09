@@ -43,7 +43,7 @@ CREATE TABLE `qlcx` (
 
 LOCK TABLES `qlcx` WRITE;
 /*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','9'),(2,'tahnh lam','sadasd','15:00','2020-12-05','200000','tung','065468431','vip','7'),(3,'tahnh lam','sadasd','15:00','2020-11-30','200000','tung','065468431','vip','7'),(4,'tahnh lam','sadasd','15:00','2020-12-18','200000','tung','065468431','vip','7');
+INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','7'),(2,'HN->SG','sadasd','15:00','2020-12-10','200000','tung','065468431','vip','8'),(3,'HN->SG','Lam165456','15:00','2020-12-09','200000','tung','065468431','vip','7');
 /*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-07 13:47:23
+-- Dump completed on 2020-12-09 23:29:00

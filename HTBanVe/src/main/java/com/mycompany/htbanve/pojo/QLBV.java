@@ -11,8 +11,7 @@ package com.mycompany.htbanve.pojo;
  */
 public class QLBV {
 
-    private String id,tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,tenkh,sdtkh,ghe;
-    private String ngaykh;
+    private String id,tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,tenkh,sdtkh,ghe,ngaykh;
     public QLBV(String id,String tencx, String bsx, String giokh, String giave, String tennv, String sdtnv, String loaixe, String tenkh, String sdtkh, String ngaykh,String ghe) {
         this.id = id;
         this.tencx = tencx;
@@ -26,6 +25,10 @@ public class QLBV {
         this.sdtkh = sdtkh;
         this.ngaykh = ngaykh;
         this.ghe = ghe;
+    }
+
+    QLBV() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void setId(String id) {
