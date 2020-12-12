@@ -97,10 +97,15 @@ public class LoginController implements Initializable {
     }
     public void addAdmin(ActionEvent event){
 <<<<<<< HEAD
+<<<<<<< HEAD
         conn = JdbcUtils.getConnection();
 =======
          conn = JdbcUtils.getConnection();
 >>>>>>> a536602cb47bb7472a8d04968f7e4db0b5639504
+=======
+
+         conn = JdbcUtils.getConnection();
+>>>>>>> c5f908bad36a8657c677cd95d44c4f8a5715b39d
         if("KTPM".equals(txtMaht.getText())){            
         String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
         try {

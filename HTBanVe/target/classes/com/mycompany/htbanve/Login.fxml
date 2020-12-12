@@ -30,12 +30,17 @@
             </Button>
          </children>
 <<<<<<< HEAD
+<<<<<<< HEAD
       </HBox>
       <AnchorPane fx:id="panelogin" layoutX="1.0" layoutY="80.0" prefHeight="256.0" prefWidth="600.0" visible="false">
 =======
       </AnchorPane>
       <AnchorPane fx:id="panelogin" layoutX="1.0" layoutY="104.0" prefHeight="232.0" prefWidth="606.0" visible="false">
 >>>>>>> a536602cb47bb7472a8d04968f7e4db0b5639504
+=======
+      </AnchorPane>
+      <AnchorPane fx:id="panelogin" layoutX="1.0" layoutY="104.0" prefHeight="232.0" prefWidth="606.0" visible="false">
+>>>>>>> c5f908bad36a8657c677cd95d44c4f8a5715b39d
          <children>
             <TextField fx:id="txttentk" layoutX="240.0" layoutY="68.0" prefHeight="29.0" prefWidth="245.0" promptText="Nhập tài khoản" style="-fx-background-color: #FFF4CE;">
                <font>
@@ -63,6 +68,7 @@
       <AnchorPane fx:id="panedangki" layoutY="80.0" prefHeight="262.0" prefWidth="600.0">
          <children>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <TextField fx:id="txtdktk" layoutX="200.0" layoutY="78.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập tài khoản" />
             <TextField fx:id="txtdkpass" layoutX="200.0" layoutY="124.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập mật khẩu" />
             <TextField fx:id="txtdkemail" layoutX="200.0" layoutY="173.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập email" />
@@ -73,6 +79,8 @@
             <Label layoutX="109.0" layoutY="41.0" prefHeight="18.0" prefWidth="78.0" text="Mã hệ thống :" />
             <TextField fx:id="txtMaht" layoutX="200.0" layoutY="38.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập mã hệ thống" />
 =======
+=======
+>>>>>>> c5f908bad36a8657c677cd95d44c4f8a5715b39d
             <TextField fx:id="txtdktk" layoutX="257.0" layoutY="101.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập tài khoản" style="-fx-background-color: #FFF4CE;">
                <font>
                   <Font name="SVN-Gotham Light" size="12.0" />
@@ -103,7 +111,10 @@
                <font>
                   <Font name="SVN-Gotham Light" size="12.0" />
                </font></TextField>
+<<<<<<< HEAD
 >>>>>>> a536602cb47bb7472a8d04968f7e4db0b5639504
+=======
+>>>>>>> c5f908bad36a8657c677cd95d44c4f8a5715b39d
          </children>
       </AnchorPane>
       <Button fx:id="QuayLaiTC" layoutX="462.0" layoutY="355.0" mnemonicParsing="false" onAction="#SwitchtoTC" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #FFF4CE;" text="Quay lại trang chủ">
