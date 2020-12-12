@@ -49,6 +49,9 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txtdkemail;
     
+    @FXML
+    private TextField txtMaht;
+    
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -98,7 +101,8 @@ public class LoginController implements Initializable {
         }
     }
     public void addAdmin(ActionEvent event){
-        conn = JdbcUtils.getConnection();
+         conn = JdbcUtils.getConnection();
+        if("KTPM".equals(txtMaht.getText())){            
         String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
         try {
             pst = conn.prepareStatement(sql);
@@ -106,11 +110,15 @@ public class LoginController implements Initializable {
             pst.setString(2, txtdkpass.getText());
             pst.setString(3, txtdkemail.getText());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Đăng kí thành công!");
-            
-            
+            JOptionPane.showMessageDialog(null, "Đăng kí thành công!"); 
+            txtMaht.clear();
+            txtdkpass.clear();
+            txtdktk.clear();
+            txtdkemail.clear();
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, e);
         }
+        }else
+            JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
     }
 }
