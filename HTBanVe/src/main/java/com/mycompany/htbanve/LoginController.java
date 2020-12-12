@@ -45,6 +45,9 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txtMaht;
     
+    @FXML
+    private TextField txtMaht;
+    
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -93,7 +96,11 @@ public class LoginController implements Initializable {
         }
     }
     public void addAdmin(ActionEvent event){
+<<<<<<< HEAD
         conn = JdbcUtils.getConnection();
+=======
+         conn = JdbcUtils.getConnection();
+>>>>>>> a536602cb47bb7472a8d04968f7e4db0b5639504
         if("KTPM".equals(txtMaht.getText())){            
         String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
         try {
