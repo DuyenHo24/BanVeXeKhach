@@ -14,7 +14,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -69,30 +72,26 @@ public class QuanLyVeXeController implements Initializable {
     private TextField txtsoghe;
     @FXML
     private TextField txtidrandom;
-
+    @FXML
+    private TextField txtngayht;
+    @FXML
+    private TextField txtgioht;
     @FXML
     private TableView<QLBV> tbvQLBV;
     @FXML
     private TableColumn<QLBV, String> colNameCX;
-
     @FXML
     private TableColumn<QLBV, String> colbsx;
-
     @FXML
     private TableColumn<QLBV, String> colloaixe;
-
     @FXML
     private TableColumn<QLBV, String> colngaykh;
-
     @FXML
     private TableColumn<QLBV, String> colgiokh;
-
     @FXML
     private TableColumn<QLBV, String> colgiave;
-
     @FXML
     private TableColumn<QLBV, String> coltennv;
-
     @FXML
     private TableColumn<QLBV, String> colsdtnv;
     @FXML
@@ -120,6 +119,7 @@ public class QuanLyVeXeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             // lay ham bo vao main tu dong load
+            ktHTVX();
             UpdateQLBV();
             FindCX();
             
@@ -250,6 +250,53 @@ public class QuanLyVeXeController implements Initializable {
         SortedList<QLBV> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tbvQLBV.comparatorProperty());
         tbvQLBV.setItems(sortedData);
+
+    }
+    public void ktHTVX(){
+       txtngayht.setText(LocalDate.now().toString());
+       String a = txtngayht.getText();
+       txtgioht.setText(LocalTime.now().toString());
+       String b = txtgioht.getText().substring(0, 5);
+       if((a.equals(colngaykh.getCellData(index))) && (b.equals(colgiokh.getCellData(index)))){
+            conn = JdbcUtils.getConnection();
+            String sql = "INSERT INTO qlvedaxuat (QLBVid,QLBVtencx,QLBVbsx,QLBVgiokh,QLBVngaykh"
+                    + ",QLBVgiave,QLBVloaixe,QLBVtenkh,QLBVsdtkh,QLBVtennv,QLBVsdtnv,QLBVghe)values(?,?,?,?,?,?,?,?,?,?,?,?)";
+            try {
+               pst = conn.prepareStatement(sql);
+                pst.setString(1,colidrandom.getCellData(index));
+                pst.setString(2,colidrandom.getCellData(index));
+                pst.setString(3,colidrandom.getCellData(index));
+                pst.setString(4,colidrandom.getCellData(index));
+                pst.setString(5,colidrandom.getCellData(index));
+                pst.setString(6,txtgiave.getText());
+                pst.setString(7,txtloaixe.getText());
+                pst.setString(8,txttenkh.getText());
+                pst.setString(9,txtsdtkh.getText());
+                pst.setString(10,txttennv.getText());
+                pst.setString(11,txtsdtnv.getText());
+                pst.setString(12,txtMaGhe.getText()); 
+                pst.execute();
+           } catch (Exception e) {
+           }
+            String sql1 = "INSERT INTO qlcxhethan (idQLCX,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave"
+                    + ",QLCXtennv,QLCXsdtnv,QLCXloaixe,QLCXghe)values(?,?,?,?,?,?,?,?,?,?)";
+            
+            
+            String sql2 = "DELETE FROM qlbv where QLBVngaykh = ? and QLBVgiokh = ?";
+            String sql3 = "DELETE FROM qlcx where QLCXngaykh = ? and QLCXgiokh = ?";
+            try {
+                pst = conn.prepareStatement(sql2);
+                pst = conn.prepareStatement(sql3);
+                pst.setString(1, txtngayht.getText());
+                pst.setString(2,txtgioht.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Các chuyến xe đã khởi hành đã bị xóa khởi hệ thống!\n Hệ thống đã cập nhập! ");
+                UpdateQLBV();
+                FindCX();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
 
     }
 }

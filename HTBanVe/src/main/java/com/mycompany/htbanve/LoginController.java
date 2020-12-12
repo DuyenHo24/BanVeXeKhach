@@ -30,24 +30,20 @@ import javax.swing.JOptionPane;
 public class LoginController implements Initializable {
      @FXML
     private AnchorPane panelogin;
-
     @FXML
     private TextField txttentk;
-
     @FXML
     private PasswordField txtpass;
-
     @FXML
     private AnchorPane panedangki;
-
     @FXML
     private TextField txtdktk;
-
     @FXML
     private TextField txtdkpass;
-
     @FXML
     private TextField txtdkemail;
+    @FXML
+    private TextField txtMaht;
     
     Connection conn = null;
     ResultSet rs = null;
@@ -74,8 +70,7 @@ public class LoginController implements Initializable {
     }
     public void SignuppnaneShow(){
         panelogin.setVisible(false);
-        panedangki.setVisible(true);
-        
+        panedangki.setVisible(true);       
     }
 
     @FXML
@@ -99,6 +94,7 @@ public class LoginController implements Initializable {
     }
     public void addAdmin(ActionEvent event){
         conn = JdbcUtils.getConnection();
+        if("KTPM".equals(txtMaht.getText())){            
         String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
         try {
             pst = conn.prepareStatement(sql);
@@ -106,11 +102,15 @@ public class LoginController implements Initializable {
             pst.setString(2, txtdkpass.getText());
             pst.setString(3, txtdkemail.getText());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Đăng kí thành công!");
-            
-            
+            JOptionPane.showMessageDialog(null, "Đăng kí thành công!"); 
+            txtMaht.clear();
+            txtdkpass.clear();
+            txtdktk.clear();
+            txtdkemail.clear();
         } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã có");
         }
+        }else
+            JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
     }
 }

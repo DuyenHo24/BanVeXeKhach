@@ -15,7 +15,7 @@
             <Button mnemonicParsing="false" onAction="#SignuppnaneShow" prefHeight="66.0" prefWidth="314.0" text="Đăng kí" />
          </children>
       </HBox>
-      <AnchorPane fx:id="panelogin" layoutX="1.0" layoutY="80.0" prefHeight="256.0" prefWidth="600.0">
+      <AnchorPane fx:id="panelogin" layoutX="1.0" layoutY="80.0" prefHeight="256.0" prefWidth="600.0" visible="false">
          <children>
             <TextField fx:id="txttentk" layoutX="177.0" layoutY="68.0" prefHeight="29.0" prefWidth="245.0" promptText="Nhập tài khoản" />
             <PasswordField fx:id="txtpass" layoutX="177.0" layoutY="128.0" prefHeight="26.0" prefWidth="246.0" promptText="Nhập mật khẩu" />
@@ -24,7 +24,7 @@
             <Label layoutX="94.0" layoutY="128.0" prefHeight="26.0" prefWidth="61.0" text="Mật khẩu :" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="panedangki" layoutY="80.0" prefHeight="262.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="panedangki" layoutY="80.0" prefHeight="262.0" prefWidth="600.0">
          <children>
             <TextField fx:id="txtdktk" layoutX="200.0" layoutY="78.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập tài khoản" />
             <TextField fx:id="txtdkpass" layoutX="200.0" layoutY="124.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập mật khẩu" />
@@ -33,6 +33,8 @@
             <Label layoutX="108.0" layoutY="82.0" prefHeight="18.0" prefWidth="68.0" text="Tài khoảng :" />
             <Label layoutX="109.0" layoutY="129.0" prefHeight="18.0" prefWidth="68.0" text="Mật khẩu :" />
             <Label layoutX="109.0" layoutY="177.0" prefHeight="18.0" prefWidth="68.0" text="Email :" />
+            <Label layoutX="109.0" layoutY="41.0" prefHeight="18.0" prefWidth="78.0" text="Mã hệ thống :" />
+            <TextField fx:id="txtMaht" layoutX="200.0" layoutY="38.0" prefHeight="26.0" prefWidth="227.0" promptText="Nhập mã hệ thống" />
          </children>
       </AnchorPane>
       <Button fx:id="QuayLaiTC" layoutX="243.0" layoutY="359.0" mnemonicParsing="false" onAction="#SwitchtoTC" prefHeight="26.0" prefWidth="114.0" text="Quay lại trang chủ" />
