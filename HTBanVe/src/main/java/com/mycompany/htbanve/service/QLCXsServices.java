@@ -32,7 +32,7 @@ public class QLCXsServices {
         while(rs.next()){
             QLCX c = new QLCX(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx"),rs.getString("QLCXbsx")
                     ,rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh"),rs.getString("QLCXngaykh"),rs.getString("QLCXgiave")
-                    ,rs.getString("QLCXtennv"),rs.getString("QLCXsdtnv"),rs.getString("QLCXghe"));  
+                    ,rs.getString("QLCXtennv"),rs.getString("QLCXsdtnv"),rs.getString("QLCXghe"),rs.getString("idphanbiet"));  
             results.add(c);
         }
         return results;
@@ -47,10 +47,10 @@ public class QLCXsServices {
                  list.add(new QLCX(Integer.parseInt(rs.getString("idQLCX")),rs.getString("QLCXtencx")
                          ,rs.getString("QLCXbsx"),rs.getString("QLCXloaixe"),rs.getString("QLCXgiokh")
                          ,rs.getString("QLCXngaykh"),rs.getString("QLCXgiave"),rs.getString("QLCXtennv")
-                         ,rs.getString("QLCXsdtnv"),rs.getString("QLCXghe")));  
+                         ,rs.getString("QLCXsdtnv"),rs.getString("QLCXghe"),rs.getString("idphanbiet")));  
 
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
         return list;
     }

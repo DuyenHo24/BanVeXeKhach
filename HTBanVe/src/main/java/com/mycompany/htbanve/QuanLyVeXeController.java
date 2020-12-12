@@ -104,11 +104,16 @@ public class QuanLyVeXeController implements Initializable {
     private TextField filterField;
     @FXML
     private TableColumn<QLBV, String> colidrandom;
+    @FXML
+    private TableColumn<QLBV, String> colidphanbiet;
+    @FXML
+    private TextField txtidht;
     
     int index = -1;
     ObservableList<QLBV> dataList;
     Connection conn = null;
     ResultSet rs = null;
+    ResultSet rs1 = null;
     PreparedStatement pst = null;
     /**
      * Initializes the controller class.
@@ -119,9 +124,10 @@ public class QuanLyVeXeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             // lay ham bo vao main tu dong load
-            ktHTVX();
             UpdateQLBV();
             FindCX();
+            txtngayht.setText(LocalDate.now().toString());
+            txtgioht.setText(LocalTime.now().toString().substring(0, 5));
             
         } catch (SQLException ex) {
             Logger.getLogger(MuaVeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,6 +152,7 @@ public class QuanLyVeXeController implements Initializable {
         coltenkh.setCellValueFactory(new PropertyValueFactory<>("tenkh"));
         colsdtkh.setCellValueFactory(new PropertyValueFactory<>("sdtkh"));
         colghe.setCellValueFactory(new PropertyValueFactory<>("ghe"));
+        colidphanbiet.setCellValueFactory(new PropertyValueFactory<>("idphanbiet"));
     }
     // Lay du lieu tu table view vao textfield
     @FXML
@@ -166,6 +173,7 @@ public class QuanLyVeXeController implements Initializable {
         txttennv.setText(coltennv.getCellData(index));
         txtsdtnv.setText(colsdtnv.getCellData(index));
         txtsoghe.setText(colghe.getCellData(index));
+        txtidht.setText(colidphanbiet.getCellData(index));
         
     }
     public void Edit(){
@@ -200,6 +208,21 @@ public class QuanLyVeXeController implements Initializable {
             pst.setString(1, txtidrandom.getText());
             pst.execute();
             JOptionPane.showMessageDialog(null, "delete");
+            try {
+                    String sql1 = "select QLCXghe from qlcx"; 
+                    pst = conn.prepareStatement(sql1);
+                    rs = pst.executeQuery();              
+                    if(rs.next()){ 
+                        Integer a = (Integer.parseInt(rs.getString(1))) + 1;
+                        String value1 = a.toString();
+                        String value2 = txtidht.getText();
+                        String sql3 = "UPDATE qlcx set QLCXghe= '"+value1+"' where idphanbiet = '"+value2+"' ";
+                        pst = conn.prepareStatement(sql3);
+                        pst.execute(); 
+                    }
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
             UpdateQLBV();
             FindCX();
         } catch (SQLException e) {
@@ -244,59 +267,11 @@ public class QuanLyVeXeController implements Initializable {
 
                                            else
                                                 return false;
-
             });                                                                             
         });
         SortedList<QLBV> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tbvQLBV.comparatorProperty());
         tbvQLBV.setItems(sortedData);
-
-    }
-    public void ktHTVX(){
-       txtngayht.setText(LocalDate.now().toString());
-       String a = txtngayht.getText();
-       txtgioht.setText(LocalTime.now().toString());
-       String b = txtgioht.getText().substring(0, 5);
-       if((a.equals(colngaykh.getCellData(index))) && (b.equals(colgiokh.getCellData(index)))){
-            conn = JdbcUtils.getConnection();
-            String sql = "INSERT INTO qlvedaxuat (QLBVid,QLBVtencx,QLBVbsx,QLBVgiokh,QLBVngaykh"
-                    + ",QLBVgiave,QLBVloaixe,QLBVtenkh,QLBVsdtkh,QLBVtennv,QLBVsdtnv,QLBVghe)values(?,?,?,?,?,?,?,?,?,?,?,?)";
-            try {
-               pst = conn.prepareStatement(sql);
-                pst.setString(1,colidrandom.getCellData(index));
-                pst.setString(2,colidrandom.getCellData(index));
-                pst.setString(3,colidrandom.getCellData(index));
-                pst.setString(4,colidrandom.getCellData(index));
-                pst.setString(5,colidrandom.getCellData(index));
-                pst.setString(6,txtgiave.getText());
-                pst.setString(7,txtloaixe.getText());
-                pst.setString(8,txttenkh.getText());
-                pst.setString(9,txtsdtkh.getText());
-                pst.setString(10,txttennv.getText());
-                pst.setString(11,txtsdtnv.getText());
-                pst.setString(12,txtMaGhe.getText()); 
-                pst.execute();
-           } catch (Exception e) {
-           }
-            String sql1 = "INSERT INTO qlcxhethan (idQLCX,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave"
-                    + ",QLCXtennv,QLCXsdtnv,QLCXloaixe,QLCXghe)values(?,?,?,?,?,?,?,?,?,?)";
-            
-            
-            String sql2 = "DELETE FROM qlbv where QLBVngaykh = ? and QLBVgiokh = ?";
-            String sql3 = "DELETE FROM qlcx where QLCXngaykh = ? and QLCXgiokh = ?";
-            try {
-                pst = conn.prepareStatement(sql2);
-                pst = conn.prepareStatement(sql3);
-                pst.setString(1, txtngayht.getText());
-                pst.setString(2,txtgioht.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Các chuyến xe đã khởi hành đã bị xóa khởi hệ thống!\n Hệ thống đã cập nhập! ");
-                UpdateQLBV();
-                FindCX();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
 
     }
 }

@@ -8,7 +8,6 @@ package com.mycompany.htbanve;
 import com.mycompany.htbanve.pojo.QLCX;
 import com.mycompany.htbanve.service.JdbcUtils;
 import com.mycompany.htbanve.service.QLCXsServices;
-import java.awt.HeadlessException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -16,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -155,8 +155,9 @@ public class AddChuyenXeController implements Initializable {
         }
         else{     
             String sql = "INSERT INTO qlcx (idQLCX,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave"
-                    + ",QLCXtennv,QLCXsdtnv,QLCXloaixe,QLCXghe)values(?,?,?,?,?,?,?,?,?,?)";
+                    + ",QLCXtennv,QLCXsdtnv,QLCXloaixe,QLCXghe,idphanbiet)values(?,?,?,?,?,?,?,?,?,?,?)";
             try {
+                String rd = UUID.randomUUID().toString();
                 pst = conn.prepareStatement(sql);
                 pst .setInt(1, Integer.parseInt(txtid.getText()));
                 pst.setString(2,txttencx.getText());
@@ -168,6 +169,8 @@ public class AddChuyenXeController implements Initializable {
                 pst.setString(8,txtsdtnv.getText());
                 pst.setString(9,txtloaixe.getText());
                 pst.setString(10,txtghe.getText());
+                pst.setString(11,rd);
+                
                 pst.execute();
 
                 JOptionPane.showMessageDialog(null, "Đã thêm chuyến xe thành công !!!");

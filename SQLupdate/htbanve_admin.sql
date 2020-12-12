@@ -36,7 +36,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('Duc','123456','Duc@gmail.com'),('Lam','123456','Lam@gmail.com'),('tung','123456','tung@gmail.com');
+INSERT INTO `admin` VALUES ('Duc','123456','Duc@gmail.com'),('Duyen','123456','Duyen@gmail.com'),('Lam','123456','Lam@gmail.com'),('Ngan','123456','Ngan@gmail.com'),('tung','123456','tung@gmail.com');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-09 23:29:00
+-- Dump completed on 2020-12-13  2:17:53

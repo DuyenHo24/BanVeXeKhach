@@ -30,7 +30,7 @@ public class QLBVServices {
             QLBV c = new QLBV(rs.getString("QLBVid"),rs.getString("QLBVtencx"), rs.getString("QLBVbsx"), rs.getString("QLBVgiokh")
                     , rs.getString("QLBVgiave"), rs.getString("QLBVtennv"), rs.getString("QLBVsdtnv")
                     , rs.getString("QLBVloaixe"), rs.getString("QLBVtenkh"), rs.getString("QLBVsdtkh")
-                    , rs.getString("QLBVngaykh"),rs.getString("QLBVghe"));  
+                    , rs.getString("QLBVngaykh"),rs.getString("QLBVghe"),rs.getString("idphanbiet"));  
             results.add(c);
         }
         return results;
@@ -45,10 +45,11 @@ public class QLBVServices {
                  list.add(new QLBV(rs.getString("QLBVid"),rs.getString("QLBVtencx"), rs.getString("QLBVbsx"), rs.getString("QLBVgiokh")
                          , rs.getString("QLBVgiave"), rs.getString("QLBVtennv"), rs.getString("QLBVsdtnv")
                          , rs.getString("QLBVloaixe"), rs.getString("QLBVtenkh"), rs.getString("QLBVsdtkh")
-                         , rs.getString("QLBVngaykh"),rs.getString("QLBVghe")));  
+                         , rs.getString("QLBVngaykh"),rs.getString("QLBVghe"),rs.getString("idphanbiet")));  
 
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            
         }
         return list;
     }

@@ -16,36 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `qlcx`
+-- Table structure for table `qlcxhethan`
 --
 
-DROP TABLE IF EXISTS `qlcx`;
+DROP TABLE IF EXISTS `qlcxhethan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `qlcx` (
-  `idQLCX` int NOT NULL,
-  `QLCXtencx` varchar(45) NOT NULL,
-  `QLCXbsx` varchar(45) NOT NULL,
-  `QLCXgiokh` varchar(45) NOT NULL,
-  `QLCXngaykh` varchar(45) NOT NULL,
-  `QLCXgiave` varchar(45) NOT NULL,
-  `QLCXtennv` varchar(45) NOT NULL,
-  `QLCXsdtnv` varchar(45) NOT NULL,
-  `QLCXloaixe` varchar(45) NOT NULL,
-  `QLCXghe` varchar(45) NOT NULL,
-  `idphanbiet` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idQLCX`)
+CREATE TABLE `qlcxhethan` (
+  `id` int NOT NULL,
+  `tencx` varchar(45) DEFAULT NULL,
+  `bsx` varchar(45) DEFAULT NULL,
+  `giokh` varchar(45) DEFAULT NULL,
+  `ngaykh` varchar(45) DEFAULT NULL,
+  `giave` varchar(45) DEFAULT NULL,
+  `tennv` varchar(45) DEFAULT NULL,
+  `sdtnv` varchar(45) DEFAULT NULL,
+  `loaixe` varchar(45) DEFAULT NULL,
+  `ghe` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `qlcx`
+-- Dumping data for table `qlcxhethan`
 --
 
-LOCK TABLES `qlcx` WRITE;
-/*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (1,'HN->SG','H11564AS','15:30','2020-12-13','150.000','Tung','0823771887','Thuong','3','c70f85b4-b598-4f41-a540-ae7427da23a6'),(2,'HN->BMT','H1765','12:00','2020-12-13','150.000','Tung','0823771887','Vip','5','52083611-94b5-46bc-ab8a-918442e763cb');
-/*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
+LOCK TABLES `qlcxhethan` WRITE;
+/*!40000 ALTER TABLE `qlcxhethan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qlcxhethan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

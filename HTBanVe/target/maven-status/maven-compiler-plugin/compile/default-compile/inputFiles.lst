@@ -1,12 +1,12 @@
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\ChonChucNangController.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\QLBV.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\TrangChuController.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\App.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\JdbcUtils.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\LoginController.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\AddChuyenXeController.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\QLCXsServices.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\QuanLyVeXeController.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\QLBVServices.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\MuaVeController.java
-C:\Users\Truc Lam\Documents\Tai_Lieu_Dai_Hoc\KIEM_THU_PHAN _MEM\BAITAP_BAN_VE_XE_KHACH\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\QLCX.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\QLCXsServices.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\App.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\QLCX.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\LoginController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\pojo\QLBV.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\JdbcUtils.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\QuanLyVeXeController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\AddChuyenXeController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\MuaVeController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\service\QLBVServices.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\ChonChucNangController.java
+E:\BTLBVXK\BanVeXeKhach\HTBanVe\src\main\java\com\mycompany\htbanve\TrangChuController.java

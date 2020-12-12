@@ -11,8 +11,9 @@ package com.mycompany.htbanve.pojo;
  */
 public class QLBV {
 
-    private String id,tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,tenkh,sdtkh,ghe,ngaykh;
-    public QLBV(String id,String tencx, String bsx, String giokh, String giave, String tennv, String sdtnv, String loaixe, String tenkh, String sdtkh, String ngaykh,String ghe) {
+    private String id,tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,tenkh,sdtkh,ghe,ngaykh,idphanbiet;
+    public QLBV(String id,String tencx, String bsx, String giokh, String giave,
+            String tennv, String sdtnv, String loaixe, String tenkh, String sdtkh, String ngaykh,String ghe,String idphanbiet) {
         this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
@@ -25,6 +26,7 @@ public class QLBV {
         this.sdtkh = sdtkh;
         this.ngaykh = ngaykh;
         this.ghe = ghe;
+        this.idphanbiet = idphanbiet;
     }
 
     QLBV() {
@@ -123,5 +125,19 @@ public class QLBV {
 
     public String getGhe() {
         return ghe;
+    }
+
+    /**
+     * @return the idphanbiet
+     */
+    public String getIdphanbiet() {
+        return idphanbiet;
+    }
+
+    /**
+     * @param idphanbiet the idphanbiet to set
+     */
+    public void setIdphanbiet(String idphanbiet) {
+        this.idphanbiet = idphanbiet;
     }
 }

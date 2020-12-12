@@ -45,9 +45,6 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txtMaht;
     
-    @FXML
-    private TextField txtMaht;
-    
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
