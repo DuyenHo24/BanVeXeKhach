@@ -53,22 +53,26 @@ public class ChonChucNangController implements Initializable {
                 rs = pst.executeQuery();
             if(rs.next()){
                 String sql3 = "DELETE FROM qlcx where QLCXngaykh = ? and QLCXgiokh = ?";
-                try {
                     pst = conn.prepareStatement(sql3);
                     pst.setString(1, a);
                     pst.setString(2, b);
                     pst.execute();
+                String sql4 = "DELETE FROM qlbv where QLBVngaykh = ? and QLBVgiokh = ?";
+                try {
+                    pst = conn.prepareStatement(sql4);
+                    pst.setString(1,a);
+                    pst.setString(2,b);
                     JOptionPane.showMessageDialog(null, "Các chuyến xe đã khởi hành đã bị xóa khởi hệ thống!\n Hệ thống đã cập nhập! ");
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "e");
+                    JOptionPane.showMessageDialog(null, e);
                 }
             }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "e");
+                JOptionPane.showMessageDialog(null, e);
             }
         }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "e");
+            JOptionPane.showMessageDialog(null, e);
         }
         App.setRoot("QuanLyVeXe");     
     }

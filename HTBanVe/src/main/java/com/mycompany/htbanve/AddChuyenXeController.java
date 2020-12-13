@@ -147,7 +147,7 @@ public class AddChuyenXeController implements Initializable {
          conn = JdbcUtils.getConnection();
         //date
         if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
-                || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getValue()) || "".equals(txtgiave.getText()) 
+                || "".equals(txtgiokh.getText()) || (txtngaykh.getValue()) == null || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
                 || "".equals(txtghe.getText()))
         {           
@@ -169,8 +169,7 @@ public class AddChuyenXeController implements Initializable {
                 pst.setString(8,txtsdtnv.getText());
                 pst.setString(9,txtloaixe.getText());
                 pst.setString(10,txtghe.getText());
-                pst.setString(11,rd);
-                
+                pst.setString(11,rd);               
                 pst.execute();
 
                 JOptionPane.showMessageDialog(null, "Đã thêm chuyến xe thành công !!!");
