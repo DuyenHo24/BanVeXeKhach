@@ -16,7 +16,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1518.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.QuanLyVeXeController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1554.0">
+      <AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1683.0">
          <children>
             <Button layoutX="1157.0" layoutY="43.0" mnemonicParsing="false" onAction="#QuayLaiTC" text="Quay lại" />
             <GridPane layoutX="13.0" layoutY="111.0" prefHeight="502.0" prefWidth="506.0">
@@ -68,10 +68,10 @@
                   <TextField fx:id="txtidrandom" disable="true" GridPane.columnIndex="1" />
                   <Label text="ID :" />
                   <Label text="ID hệ thống :" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtidht" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtidht" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <TableView fx:id="tbvQLBV" layoutX="556.0" layoutY="153.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="999.0">
+            <TableView fx:id="tbvQLBV" layoutX="556.0" layoutY="153.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="1122.0">
                <columns>
                   <TableColumn fx:id="colNameCX" prefWidth="102.4000244140625" text="Tên chuyến xe" />
                   <TableColumn fx:id="colbsx" prefWidth="82.39996337890625" text="Biển số xe" />

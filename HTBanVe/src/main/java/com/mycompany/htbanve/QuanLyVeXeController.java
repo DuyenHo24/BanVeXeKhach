@@ -17,7 +17,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -184,14 +183,7 @@ public class QuanLyVeXeController implements Initializable {
         }
         else{     
         try {
-            conn = JdbcUtils.getConnection();
-            String value3 = txtidrandom.getText();
-            String value1 = txttenkh.getText();
-            String value2 = txtsdtkh.getText();
-            String value4 = txtsoghe.getText();          
-            String sql = "UPDATE qlbv set QLBVtenkh= '"+value1+"',QLBVsdtkh= '"+value2+"',QLBVghe='"+value4+"' where QLBVid = '"+value3+"' ";
-            pst = conn.prepareStatement(sql);
-            pst.execute();
+            QLBVServices.updateQLBV(txttenkh.getText(), txtsdtkh.getText(), txtsoghe.getText(), txtidrandom.getText());
             JOptionPane.showMessageDialog(null, "update");
             UpdateQLBV();
             FindCX();
@@ -201,28 +193,8 @@ public class QuanLyVeXeController implements Initializable {
         }
     }
     public void DeleteQLBV(){
-        conn = JdbcUtils.getConnection();
-        String sql = "DELETE FROM qlbv where QLBVid = ?";
         try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtidrandom.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "delete");
-            try {
-                    String sql1 = "select QLCXghe from qlcx"; 
-                    pst = conn.prepareStatement(sql1);
-                    rs = pst.executeQuery();              
-                    if(rs.next()){ 
-                        Integer a = (Integer.parseInt(rs.getString(1))) + 1;
-                        String value1 = a.toString();
-                        String value2 = txtidht.getText();
-                        String sql3 = "UPDATE qlcx set QLCXghe= '"+value1+"' where idphanbiet = '"+value2+"' ";
-                        pst = conn.prepareStatement(sql3);
-                        pst.execute(); 
-                    }
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
+            QLBVServices.XoaVe(txtidrandom.getText(), txtidht.getText());
             UpdateQLBV();
             FindCX();
         } catch (SQLException e) {

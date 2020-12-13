@@ -44,7 +44,7 @@ CREATE TABLE `qlcx` (
 
 LOCK TABLES `qlcx` WRITE;
 /*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (1,'HN->SG','H11564AS','15:30','2020-12-13','150.000','Tung','0823771887','Thuong','3','c70f85b4-b598-4f41-a540-ae7427da23a6'),(2,'HN->BMT','H1765','12:00','2020-12-13','150.000','Tung','0823771887','Vip','5','52083611-94b5-46bc-ab8a-918442e763cb');
+INSERT INTO `qlcx` VALUES (5,'hw','he','hy','ht','hu','hi','ho','hr','hp','d0d6b0d8-a2ee-4a71-9801-fe67499da0b2'),(6,'b','c','d','e','f','g','h','j','k','15734925-f4b5-4c9f-8ffc-e2f8d2b57e50');
 /*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-13  2:17:54
+-- Dump completed on 2020-12-14  4:07:24

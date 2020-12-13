@@ -3,6 +3,7 @@ com\mycompany\htbanve\pojo\QLCX.class
 com\mycompany\htbanve\AddChuyenXeController.class
 com\mycompany\htbanve\service\QLCXsServices.class
 com\mycompany\htbanve\ChonChucNangController.class
+com\mycompany\htbanve\service\QLBVServices.class
 com\mycompany\htbanve\App.class
 com\mycompany\htbanve\LoginController.class
 com\mycompany\htbanve\MuaVeController.class

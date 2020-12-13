@@ -5,6 +5,7 @@
  */
 package com.mycompany.htbanve;
 
+import com.mycompany.htbanve.service.AdminServices;
 import com.mycompany.htbanve.service.JdbcUtils;
 import java.io.IOException;
 import java.net.URL;
@@ -75,9 +76,9 @@ public class LoginController implements Initializable {
 
     @FXML
     public void AdminLogin(ActionEvent event) throws IOException{
-        conn = JdbcUtils.getConnection();
-        String sql = "Select * from admin where Admintk = ? and Adminpass = ? ";
         try {
+            conn = JdbcUtils.getConnection();
+            String sql = "Select * from admin where Admintk = ? and Adminpass = ? ";
             pst = conn.prepareStatement(sql);
             pst.setString(1,txttentk.getText());
             pst.setString(2, txtpass.getText());
@@ -86,32 +87,30 @@ public class LoginController implements Initializable {
                 JOptionPane.showMessageDialog(null, "Đăng nhập thành công!");
                 App.setRoot("ChonChucNang");
             }else
-                JOptionPane.showMessageDialog(null, "Sai tên đăng nhập hoặc mật khẩu");
-            
+                JOptionPane.showMessageDialog(null, "Sai tên đăng nhập hoặc mật khẩu");    
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
     public void addAdmin(ActionEvent event){
-
-         conn = JdbcUtils.getConnection();
-        if("KTPM".equals(txtMaht.getText())){            
-        String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtdktk.getText());
-            pst.setString(2, txtdkpass.getText());
-            pst.setString(3, txtdkemail.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Đăng kí thành công!"); 
-            txtMaht.clear();
-            txtdkpass.clear();
-            txtdktk.clear();
-            txtdkemail.clear();
-        } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã có");
-        }
+        if("".equals(txtdktk.getText()) || "".equals(txtdkpass.getText()) || "".equals(txtdkemail.getText()))
+        {
+            JOptionPane.showMessageDialog(null, "Chưa nhập đủ thông tin");
         }else
-            JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
+        {
+            if("KTPM".equals(txtMaht.getText())){            
+            try {
+                AdminServices.addTKAdmin(txtdktk.getText(), txtdkpass.getText(), txtdkemail.getText());
+                JOptionPane.showMessageDialog(null, "Đăng kí thành công!"); 
+                txtMaht.clear();
+                txtdkpass.clear();
+                txtdktk.clear();
+                txtdkemail.clear();
+            } catch (SQLException e) {
+                JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã có");
+            }
+            }else
+                JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
+        }
     }
 }

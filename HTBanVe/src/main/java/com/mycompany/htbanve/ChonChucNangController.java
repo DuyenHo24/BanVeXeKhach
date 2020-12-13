@@ -5,7 +5,7 @@
  */
 package com.mycompany.htbanve;
 
-import com.mycompany.htbanve.service.JdbcUtils;
+import com.mycompany.htbanve.service.QLBVServices;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -39,41 +39,12 @@ public class ChonChucNangController implements Initializable {
     public void SwitchtoQLVX(ActionEvent event) throws IOException, SQLException{
         String a =(LocalDate.now().toString());
         String b =(LocalTime.now().toString().substring(0, 5));
-        conn = JdbcUtils.getConnection();
-        String sql = "Select * from qlbv where QLBVngaykh = ? ";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1,a);
-            rs = pst.executeQuery();
-        if(rs.next()){
-            String sql1 = "Select * from qlbv where QLBVgiokh = ? ";
-            try {
-                pst = conn.prepareStatement(sql1);
-                pst.setString(1,b);
-                rs = pst.executeQuery();
-            if(rs.next()){
-                String sql3 = "DELETE FROM qlcx where QLCXngaykh = ? and QLCXgiokh = ?";
-                    pst = conn.prepareStatement(sql3);
-                    pst.setString(1, a);
-                    pst.setString(2, b);
-                    pst.execute();
-                String sql4 = "DELETE FROM qlbv where QLBVngaykh = ? and QLBVgiokh = ?";
-                try {
-                    pst = conn.prepareStatement(sql4);
-                    pst.setString(1,a);
-                    pst.setString(2,b);
-                    JOptionPane.showMessageDialog(null, "Các chuyến xe đã khởi hành đã bị xóa khởi hệ thống!\n Hệ thống đã cập nhập! ");
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-            }
+        try{
+            QLBVServices.KiemtraNgayGio(a, b);
+            JOptionPane.showMessageDialog(null, "Các chuyến xe đã khởi hành đã bị xóa khởi hệ thống!\n Hệ thống đã cập nhập! ");          
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-        }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
         App.setRoot("QuanLyVeXe");     
     }
         

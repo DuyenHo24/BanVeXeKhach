@@ -15,7 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -154,24 +153,9 @@ public class AddChuyenXeController implements Initializable {
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
         }
         else{     
-            String sql = "INSERT INTO qlcx (idQLCX,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave"
-                    + ",QLCXtennv,QLCXsdtnv,QLCXloaixe,QLCXghe,idphanbiet)values(?,?,?,?,?,?,?,?,?,?,?)";
             try {
-                String rd = UUID.randomUUID().toString();
-                pst = conn.prepareStatement(sql);
-                pst .setInt(1, Integer.parseInt(txtid.getText()));
-                pst.setString(2,txttencx.getText());
-                pst.setString(3,txtbsx.getText());
-                pst.setString(4,txtgiokh.getText());
-                pst.setString(5,txtngaykh.getValue().toString());
-                pst.setString(6,txtgiave.getText());
-                pst.setString(7,txttennv.getText());
-                pst.setString(8,txtsdtnv.getText());
-                pst.setString(9,txtloaixe.getText());
-                pst.setString(10,txtghe.getText());
-                pst.setString(11,rd);               
-                pst.execute();
-
+                QLCXsServices.addCX(txtid.getText(), txttencx.getText(), txtbsx.getText(), txtgiokh.getText(), txtngaykh.getValue().toString(), txtgiave.getText()
+                        , txttennv.getText(), txtsdtnv.getText(), txtloaixe.getText(), txtghe.getText());
                 JOptionPane.showMessageDialog(null, "Đã thêm chuyến xe thành công !!!");
                 UpdateQLCX();
                 FindCX();
@@ -185,43 +169,24 @@ public class AddChuyenXeController implements Initializable {
             || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getValue()) || "".equals(txtgiave.getText()) 
             || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
             || "".equals(txtghe.getText()))
-    {
-            
+    {          
         JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
     }
     else{     
-    try {
-        conn = JdbcUtils.getConnection();
-        String value1 = txtid.getText();
-        String value2 = txttencx.getText();
-        String value3 = txtbsx.getText();
-        String value4 = txtloaixe.getText();
-        String value5 = txtngaykh.getValue().toString();
-        String value6 = txtgiokh.getText();
-        String value7 = txtgiave.getText();
-        String value8 = txttennv.getText();
-        String value9 = txtsdtnv.getText();
-        String value10 = txtghe.getText();
-        String sql = "UPDATE qlcx set idQLCX= '"+value1+ "', QLCXtencx= '"+value2+"',QLCXbsx= '"+value3+"',QLCXloaixe= '"+
-                value4+"',QLCXngaykh= '"+value5+"',QLCXgiokh= '"+value6+"',QLCXgiave= '"+
-                value7+"',QLCXtennv= '"+value8+"',QLCXsdtnv= '"+value9+"',QLCXghe='"+value10+"' where idQLCX = '"+value1+"'";
-        pst = conn.prepareStatement(sql);
-        pst.execute();
-        JOptionPane.showMessageDialog(null, "update");
+        try {
+            QLCXsServices.EditCX(txtid.getText(), txttencx.getText(), txtbsx.getText(), txtloaixe.getText(), txtngaykh.getValue().toString()
+                    , txtgiokh.getText(), txtgiave.getText(), txttennv.getText(), txtsdtnv.getText(), txtghe.getText());
+            JOptionPane.showMessageDialog(null, "update");
             UpdateQLCX();
             FindCX();
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 }
     public void DeleteQLCX(){
-        conn = JdbcUtils.getConnection();
-        String sql = "DELETE FROM qlcx where idQLCX = ?";
         try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtid.getText());
-            pst.execute();
+            QLCXsServices.DeleteCX(txtid.getText());
             JOptionPane.showMessageDialog(null, "delete");
             UpdateQLCX();
             FindCX();

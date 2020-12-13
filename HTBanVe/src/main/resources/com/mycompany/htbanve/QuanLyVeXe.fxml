@@ -68,7 +68,7 @@
                   <TextField fx:id="txtidrandom" disable="true" GridPane.columnIndex="1" />
                   <Label text="ID :" />
                   <Label text="ID hệ thống :" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtidht" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtidht" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <TableView fx:id="tbvQLBV" layoutX="556.0" layoutY="153.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="1122.0">
