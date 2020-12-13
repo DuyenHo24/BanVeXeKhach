@@ -140,4 +140,8 @@ public class QLBV {
     public void setIdphanbiet(String idphanbiet) {
         this.idphanbiet = idphanbiet;
     }
+
+    public void setTencx(PrintTicket pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
