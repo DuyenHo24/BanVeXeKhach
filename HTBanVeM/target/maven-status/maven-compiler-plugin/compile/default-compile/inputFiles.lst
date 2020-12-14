@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\AddChuyenXeController.java
 E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\ChonChucNangController.java
 E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\QLCX.java
@@ -14,3 +15,21 @@ E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\QLBV.j
 E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\Admin.java
 E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\service\QLBVServices.java
 E:\BTLBVXK\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\App.java
+=======
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\QuanLyVeXeController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\LoginController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\QLBV.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\service\QLCXsServices.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\ChonChucNangController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\PrintTicketController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\TrangChuController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\service\AdminServices.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\Admin.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\service\QLBVServices.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\AddChuyenXeController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\MuaVeController.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\QLCX.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\pojo\PrintTicket.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\App.java
+D:\KTPM_MN\BanVeXeKhach\HTBanVeM\src\main\java\com\mycompany\htbanve\service\JdbcUtils.java
+>>>>>>> e6be3c7a8aafc9cbbe4b95a0c6a909441ccc895f
