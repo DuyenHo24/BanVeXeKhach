@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -30,6 +31,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * FXML Controller class
@@ -143,14 +146,32 @@ public class AddChuyenXeController implements Initializable {
 
     }
     public void AddQLCX(){
-         conn = JdbcUtils.getConnection();
-        //date
+        conn = JdbcUtils.getConnection();
+        Pattern pattern,pattern1,pattern2,pattern3;
+        Matcher matcher;
+        pattern = Pattern.compile("^\\d{2}[:]\\d{2}$");
+        pattern1 = Pattern.compile("^\\d{1,2}[/]\\d{1,2}[/]\\d{4}$");
+        pattern2 = Pattern.compile("^\\d{2}$");
+        pattern3 = Pattern.compile("^\\d{10}");
+        boolean kt = pattern.matcher(txtgiokh.getText()).matches();
+        boolean kt1 = pattern1.matcher(txtngaykh.getValue().toString()).matches();
+        boolean kt2 = pattern2.matcher(txtghe.getText()).matches();
+        boolean kt3 = pattern3.matcher(txtsdtnv.getText()).matches();
+
         if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
-                || "".equals(txtgiokh.getText()) || (txtngaykh.getValue()) == null || "".equals(txtgiave.getText()) 
+                || (txtngaykh.getValue()) == null || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
                 || "".equals(txtghe.getText()))
         {           
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
+        }else if(kt == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai gio: " + txtgiokh.getText());
+        }else if(kt1 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai ngay: " + txtngaykh.getValue().toString());
+        }else if(kt2 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai ghe: " + txtghe.getText());
+        }else if(kt3 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai sdtnv: " + txtsdtnv.getText());
         }
         else{     
             try {
@@ -165,13 +186,31 @@ public class AddChuyenXeController implements Initializable {
         }        
     }
     public void Edit(){
+        Pattern pattern,pattern1,pattern2,pattern3;
+        Matcher matcher;
+        pattern = Pattern.compile("^\\d{2}[:]\\d{2}$");
+        pattern1 = Pattern.compile("^\\d{1,2}[/]\\d{1,2}[/]\\d{4}$");
+        pattern2 = Pattern.compile("^\\d{2}$");
+        pattern3 = Pattern.compile("^\\d{10}");
+        boolean kt = pattern.matcher(txtgiokh.getText()).matches();
+        boolean kt1 = pattern1.matcher(txtngaykh.getValue().toString()).matches();
+        boolean kt2 = pattern2.matcher(txtghe.getText()).matches();
+        boolean kt3 = pattern3.matcher(txtsdtnv.getText()).matches();
     if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
-            || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getValue()) || "".equals(txtgiave.getText()) 
+            || "".equals(txtgiokh.getText()) || (txtngaykh.getValue()) == null || "".equals(txtgiave.getText()) 
             || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
             || "".equals(txtghe.getText()))
     {          
         JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
-    }
+    }else if(kt == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai gio: " + txtgiokh.getText());
+        }else if(kt1 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai ngay: " + txtngaykh.getValue().toString());
+        }else if(kt2 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai ghe: " + txtghe.getText());
+        }else if(kt3 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai sdtnv: " + txtsdtnv.getText());
+        }
     else{     
         try {
             QLCXsServices.EditCX(txtid.getText(), txttencx.getText(), txtbsx.getText(), txtloaixe.getText(), txtngaykh.getValue().toString()

@@ -55,7 +55,7 @@ public class QLCXsServices {
         }
         return list;
     }
-    public static void addCX(String a, String b, String c, String d, String e, String f, String g, String h, String i, String k) throws SQLException{
+    public static boolean addCX(String a, String b, String c, String d, String e, String f, String g, String h, String i, String k) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "INSERT INTO qlcx (idQLCX,QLCXtencx,QLCXbsx,QLCXgiokh,QLCXngaykh,QLCXgiave"
                     + ",QLCXtennv,QLCXsdtnv,QLCXloaixe,QLCXghe,idphanbiet)values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -73,8 +73,9 @@ public class QLCXsServices {
         pst.setString(10,k);
         pst.setString(11,rd);               
         pst.execute();
+        return true;
     }
-    public static void EditCX(String value1, String value2, String value3, String value4
+    public static boolean EditCX(String value1, String value2, String value3, String value4
             ,String value5,String value6,String value7,String value8,String value9,String value10) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "UPDATE qlcx set idQLCX= '"+value1+ "', QLCXtencx= '"+value2+"',QLCXbsx= '"+value3+"',QLCXloaixe= '"+
@@ -82,13 +83,15 @@ public class QLCXsServices {
                 value7+"',QLCXtennv= '"+value8+"',QLCXsdtnv= '"+value9+"',QLCXghe='"+value10+"' where idQLCX = '"+value1+"'";
         PreparedStatement pst = conn.prepareStatement(sql);
         pst.execute();
+        return true;
     }
-    public static void DeleteCX(String a) throws SQLException{
+    public static boolean DeleteCX(String a) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "DELETE FROM qlcx where idQLCX = ?";
         PreparedStatement pst = conn.prepareStatement(sql);
         pst.setString(1, a);
         pst.execute();
+        return true;
     }
     
 }

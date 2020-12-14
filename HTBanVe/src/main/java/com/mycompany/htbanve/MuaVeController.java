@@ -5,7 +5,6 @@
  */
 package com.mycompany.htbanve;
 
-import com.mycompany.htbanve.pojo.QLBV;
 import com.mycompany.htbanve.pojo.QLCX;
 import com.mycompany.htbanve.service.JdbcUtils;
 import com.mycompany.htbanve.service.QLBVServices;
@@ -20,6 +19,8 @@ import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -123,18 +124,20 @@ public class MuaVeController implements Initializable {
     // them ve vao csdl
     public void AddQLBV(){
          conn = JdbcUtils.getConnection();
-        //date
-        // dieu kien k cho phep de trong o dl
+        Pattern pattern;
+        Matcher matcher;
+        pattern = Pattern.compile("^\\d{10}");
+        boolean kt = pattern.matcher(txtsdtkh.getText()).matches();
         if ("".equals(txtid.getText()) || "".equals(txttencx.getText()) || "".equals(txtbsx.getText()) 
                 || "".equals(txtgiokh.getText()) || "".equals(txtngaykh.getText()) || "".equals(txtgiave.getText()) 
                 || "".equals(txttennv.getText()) || "".equals(txtsdtnv.getText()) || "".equals(txtloaixe.getText()) 
                 || "".equals(txttenkh.getText()) || "".equals(txtsdtkh.getText()) || "".equals(txtghe.getText()))
         {            
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if("0".equals(txtghe.getText())){
-            JOptionPane.showMessageDialog(null, "Chuyến xe đã hết ghế trống\n Mời bạn chọn chuyến xe khác");            
-                  
+        }else if(kt == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai số điện thoại: " + txtsdtkh.getText());
+        }else if("0".equals(txtghe.getText())){
+            JOptionPane.showMessageDialog(null, "Chuyến xe đã hết ghế trống\n Mời bạn chọn chuyến xe khác");                     
         }else
         {                 
             try {

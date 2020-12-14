@@ -7,7 +7,6 @@ package com.mycompany.htbanve;
 
 import com.mycompany.htbanve.pojo.PrintTicket;
 import com.mycompany.htbanve.pojo.QLBV;
-import com.mycompany.htbanve.service.JdbcUtils;
 import com.mycompany.htbanve.service.QLBVServices;
 import java.io.IOException;
 import java.net.URL;
@@ -20,23 +19,19 @@ import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -179,14 +174,23 @@ public class QuanLyVeXeController implements Initializable {
         txttennv.setText(coltennv.getCellData(index));
         txtsdtnv.setText(colsdtnv.getCellData(index));
         txtsoghe.setText(colghe.getCellData(index));
-        txtidht.setText(colidphanbiet.getCellData(index));
-        
+        txtidht.setText(colidphanbiet.getCellData(index));        
     }
     public void Edit(){
+        Pattern pattern,pattern1;
+        Matcher matcher;
+        pattern = Pattern.compile("^\\d{10}");
+        pattern1 = Pattern.compile("^[a-cA-C]\\d{2}$");
+        boolean kt = pattern.matcher(txtsdtkh.getText()).matches();
+        boolean kt1 = pattern1.matcher(txtsoghe.getText()).matches();
         if ( "".equals(txttenkh.getText()) || "".equals(txtsdtkh.getText()) 
                 || "".equals(txtsoghe.getText()) )
         {           
             JOptionPane.showMessageDialog(null, "Chua nhap du thong tin","about",JOptionPane.INFORMATION_MESSAGE);
+        }else if(kt == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai số điện thoại: " + txtsdtkh.getText());
+        }else if(kt1 == false){
+            JOptionPane.showMessageDialog(null, "Nhap sai số ghế: " + txtsoghe.getText());
         }
         else{     
         try {

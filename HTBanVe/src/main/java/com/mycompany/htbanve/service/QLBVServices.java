@@ -54,13 +54,14 @@ public class QLBVServices {
         }
         return list;
     }
-    public static void updateQLBV(String value1, String value2, String value3, String value4) throws SQLException{
+    public static boolean updateQLBV(String value1, String value2, String value3, String value4) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "UPDATE qlbv set QLBVtenkh= '"+value1+"',QLBVsdtkh= '"+value2+"',QLBVghe='"+value3+"' where QLBVid = '"+value4+"' ";
         PreparedStatement pst = conn.prepareStatement(sql);
         pst.execute();
+        return true;
     }
-    public static void addVe(String value1, String value2, String value3, String value4
+    public static boolean addVe(String value1, String value2, String value3, String value4
             ,String value5,String value6,String value7,String value8,String value9,String value10
             ,String value11, String value12,String value13) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
@@ -80,15 +81,17 @@ public class QLBVServices {
             pst.setString(11,value11);
             pst.setString(12,value12);
             pst.setString(13,value13);
-            pst.execute();   
+            pst.execute(); 
+            return true;
     }
-    public static void GiamGhe(String value1, String value2) throws SQLException{
+    public static boolean GiamGhe(String value1, String value2) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql2 = "UPDATE qlcx set QLCXghe= '"+value1+"' where idphanbiet = '"+value2+"' ";
         PreparedStatement pst = conn.prepareStatement(sql2);
         pst.execute(); 
+        return true;
     }
-    public static void KiemtraNgayGio(String a, String b) throws SQLException{
+    public static boolean KiemtraNgayGio(String a, String b) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "Select * from qlbv where QLBVngaykh = ? ";
         PreparedStatement pst = conn.prepareStatement(sql);
@@ -111,9 +114,11 @@ public class QLBVServices {
                     pst3.setString(2,b);
                     pst3.execute();
             }
+           
         }
+        return true;
     }
-    public static void XoaVe(String a,String b) throws SQLException{
+    public static boolean XoaVe(String a,String b) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "DELETE FROM qlbv where QLBVid = ?";
         PreparedStatement pst = conn.prepareStatement(sql);
@@ -135,5 +140,6 @@ public class QLBVServices {
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
+        return true;
     }
 }

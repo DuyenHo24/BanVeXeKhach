@@ -31,7 +31,7 @@ public class AdminServices {
         }
         return results;
     }
-    public static void addTKAdmin(String a, String b, String c) throws SQLException{
+    public static boolean addTKAdmin(String a, String b, String c) throws SQLException{
         Connection conn = JdbcUtils.getConnection();
         String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
         PreparedStatement pst = conn.prepareStatement(sql);
@@ -39,5 +39,7 @@ public class AdminServices {
         pst.setString(2, b);
         pst.setString(3, c);
         pst.execute();
+        
+        return true;
     }
 }
