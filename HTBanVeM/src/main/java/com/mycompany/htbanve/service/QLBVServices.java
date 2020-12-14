@@ -6,6 +6,7 @@
 package com.mycompany.htbanve.service;
 
 import com.mycompany.htbanve.pojo.QLBV;
+import com.sun.org.apache.xpath.internal.operations.Equals;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -140,6 +141,19 @@ public class QLBVServices {
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
+        return true;
+    }
+    public static boolean KiemTraGhe(String a) throws SQLException{
+        Connection conn = JdbcUtils.getConnection();
+        String sql = "Select * from qlbv where QLBVghe = ? ";
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(1,a);
+        ResultSet rs = pst.executeQuery();
+        rs.next();
+            while(a.equals(rs.getString(1)))
+            {
+                return false;
+            }             
         return true;
     }
 }

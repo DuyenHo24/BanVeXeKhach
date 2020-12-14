@@ -56,6 +56,21 @@
                         <Image url="@img/tìm%20chuyến%20xe.png" />
                      </image>
                   </ImageView>
+                  <TableView fx:id="tbvQLCX" layoutX="48.0" layoutY="237.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="863.0">
+                     <columns>
+                        <TableColumn fx:id="colid" prefWidth="43.199951171875" text="ID" />
+                        <TableColumn fx:id="colNameCX" prefWidth="102.4000244140625" text="Tên chuyến xe" />
+                        <TableColumn fx:id="colbsx" prefWidth="82.39996337890625" text="Biển số xe" />
+                        <TableColumn fx:id="colloaixe" prefWidth="64.79998779296875" text="Loại xe" />
+                        <TableColumn fx:id="colngaykh" prefWidth="94.39996337890625" text="Ngày khởi hành" />
+                        <TableColumn fx:id="colgiokh" prefWidth="98.39996337890625" text="Giờ khởi hành" />
+                        <TableColumn fx:id="colgiave" prefWidth="86.4000244140625" text="Giá vé" />
+                        <TableColumn fx:id="coltennv" prefWidth="101.5999755859375" text="Tên nhân viên" />
+                        <TableColumn fx:id="colsdtnv" prefWidth="95.99997558593748" text="SDT nv" />
+                        <TableColumn fx:id="colghe" prefWidth="90.4000244140625" text="Số ghế trống" />
+                        <TableColumn fx:id="colidphanbiet" prefWidth="75.0" text="Column X" />
+                     </columns>
+                  </TableView>
                </children>
             </AnchorPane>
             <GridPane layoutX="50.0" layoutY="203.0" prefHeight="475.0" prefWidth="470.0">
@@ -78,7 +93,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                    <Label prefHeight="21.0" prefWidth="150.0" text="Tên chuyến xe :" GridPane.rowIndex="1" />
@@ -87,15 +101,15 @@
                   <Label text="Ngày khởi hành :" GridPane.rowIndex="4" />
                   <Label text="Giờ khởi hành :" GridPane.rowIndex="5" />
                   <Label text="Giá vé :" GridPane.rowIndex="6" />
-                  <Label text="Mô tả :" GridPane.rowIndex="12" />
-                  <Label text="Tên  :" GridPane.rowIndex="13" />
-                  <Label text="SĐT liên hệ :" GridPane.rowIndex="14" />
+                  <Label text="Mô tả :" GridPane.rowIndex="11" />
+                  <Label text="Tên  :" GridPane.rowIndex="12" />
+                  <Label text="SĐT liên hệ :" GridPane.rowIndex="13" />
                   <TextField fx:id="txttencx" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="txtbsx" disable="true" prefHeight="25.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="txtgiokh" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextArea disable="true" prefHeight="200.0" prefWidth="200.0" text="Hành khách có mặt tại văn phòng trước giờ khởi hành !&#10;To be present at this office before departure time !" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                  <TextField fx:id="txttennv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                  <TextField fx:id="txtsdtnv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                  <TextArea disable="true" prefHeight="200.0" prefWidth="200.0" text="Hành khách có mặt tại văn phòng trước giờ khởi hành !&#10;To be present at this office before departure time !" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <TextField fx:id="txttennv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                  <TextField fx:id="txtsdtnv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="13" />
                   <TextField fx:id="txtloaixe" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="txtgiave" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <Label text="ID:" />
@@ -109,25 +123,8 @@
                   <TextField fx:id="txtghe" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <Label layoutX="10.0" layoutY="256.0" prefHeight="18.0" prefWidth="86.0" text="Mã ghế :" GridPane.rowIndex="8" />
                   <TextField fx:id="txtMaGhe" disable="true" prefHeight="25.0" prefWidth="289.0" promptText="Mã ghế của bạn sẽ được sắp xếp khi nhận vé tại quầy" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                  <Label text="Email:" GridPane.rowIndex="11" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
                </children>
             </GridPane>
-            <TableView fx:id="tbvQLCX" layoutX="557.0" layoutY="112.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="863.0">
-               <columns>
-                  <TableColumn fx:id="colid" prefWidth="43.199951171875" text="ID" />
-                  <TableColumn fx:id="colNameCX" prefWidth="102.4000244140625" text="Tên chuyến xe" />
-                  <TableColumn fx:id="colbsx" prefWidth="82.39996337890625" text="Biển số xe" />
-                  <TableColumn fx:id="colloaixe" prefWidth="64.79998779296875" text="Loại xe" />
-                  <TableColumn fx:id="colngaykh" prefWidth="94.39996337890625" text="Ngày khởi hành" />
-                  <TableColumn fx:id="colgiokh" prefWidth="98.39996337890625" text="Giờ khởi hành" />
-                  <TableColumn fx:id="colgiave" prefWidth="86.4000244140625" text="Giá vé" />
-                  <TableColumn fx:id="coltennv" prefWidth="101.5999755859375" text="Tên nhân viên" />
-                  <TableColumn fx:id="colsdtnv" prefWidth="95.99997558593748" text="SDT nv" />
-                  <TableColumn fx:id="colghe" prefWidth="90.4000244140625" text="Số ghế trống" />
-                  <TableColumn fx:id="colidphanbiet" prefWidth="75.0" text="Column X" />
-               </columns>
-            </TableView>
             <Label layoutX="164.0" layoutY="15.0" prefHeight="55.0" prefWidth="358.0" text="MUA VÉ">
                <font>
 

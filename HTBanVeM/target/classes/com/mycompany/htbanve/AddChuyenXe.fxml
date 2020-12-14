@@ -9,16 +9,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="779.0" prefWidth="1526.0" style="-fx-background-color: #FFF4CE;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.AddChuyenXeController">
    <children>
@@ -56,7 +52,7 @@
             <TextField fx:id="txttencx" promptText="Nhập tên chuyến xe" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtBSX" prefHeight="25.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtbsx" prefHeight="25.0" prefWidth="444.0" promptText="Nhập biển số xe" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtgiokh" promptText="Nhập giờ khởi hành" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtgiokh" promptText="Nhập giờ khởi hành VD: 12:00" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextArea disable="true" prefHeight="200.0" prefWidth="200.0" text="Hành khách có mặt tại văn phòng trước giờ khởi hành !&#10;To be present at this office before departure time !" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <TextField fx:id="txttennv" promptText="Nhập tên nhân viên" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <TextField fx:id="txtsdtnv" promptText="Nhập số điện thoại liên hệ" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="10" />
@@ -65,7 +61,7 @@
             <Label text="ID:" textFill="#fff0bd" />
             <TextField fx:id="txtid" promptText="Nhập ID chuyến xe không được trùng" styleClass="textfield" stylesheets="@css/addChuyenXe.css" GridPane.columnIndex="1" />
             <Label text="Số ghế:" GridPane.rowIndex="7" />
-            <TextField fx:id="txtghe" promptText="Nhập số ghế còn trống" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="txtghe" promptText="Nhập số ghế còn trống VD : 03" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <TableView fx:id="tbvQLCX" layoutX="600.0" layoutY="138.0" onMouseClicked="#getSelected" prefHeight="576.0" prefWidth="866.0" stylesheets="@css/addChuyenXe.css">

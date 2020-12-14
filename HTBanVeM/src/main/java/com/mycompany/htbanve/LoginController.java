@@ -92,49 +92,33 @@ public class LoginController implements Initializable {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    @FXML
     public void addAdmin(ActionEvent event){
-        conn = JdbcUtils.getConnection();
-        if("KTPM".equals(txtMaht.getText())){            
-        String sql = "Insert into admin (Admintk,Adminpass,Adminemail) value (?,?,?)";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtdktk.getText());
-            pst.setString(2, txtdkpass.getText());
-            pst.setString(3, txtdkemail.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Đăng kí thành công!"); 
-            txtMaht.clear();
-            txtdkpass.clear();
-            txtdktk.clear();
-            txtdkemail.clear();
-        } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã có");
-        }
-        }else
-            JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
         String EMAIL_PATTERN = "^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$";
         boolean kt = Pattern.matches(EMAIL_PATTERN, txtdkemail.getText());
-        if(kt == false){
-            JOptionPane.showConfirmDialog(null, "Nhập sai quy định email!");
-            }else if(txtdktk.getText().length() < 6 || txtdkpass.getText().length() < 6){
-                JOptionPane.showConfirmDialog(null, "Tài khoản và mật khẩu phải hơn 6 kí tự");
-                }else
-                    {
-                        if("KTPM".equals(txtMaht.getText())){            
-                            try {
-                                AdminServices.addTKAdmin(txtdktk.getText(), txtdkpass.getText(), txtdkemail.getText());
-                                JOptionPane.showMessageDialog(null, "Đăng kí thành công!");
-                                panelogin.setVisible(true);
-                                panedangki.setVisible(false);
-                                txtMaht.clear();
-                                txtdkpass.clear();
-                                txtdktk.clear();
-                                txtdkemail.clear();
-                            } catch (SQLException e) {
-                                JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã có");
-                            }
-                        }else
-                            JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
-                    }
+        conn = JdbcUtils.getConnection();
+        if("KTPM".equals(txtMaht.getText())){            
+            if(kt == false){
+                JOptionPane.showConfirmDialog(null, "Nhập sai quy định email!");
+                }else if(txtdktk.getText().length() < 6 || txtdkpass.getText().length() < 6 || txtdktk.getText().length() > 45 || txtdkpass.getText().length() > 45){
+                    JOptionPane.showConfirmDialog(null, "Tài khoản và mật khẩu phải hơn 6 kí tự");
+                    }else
+                        {          
+                                try {
+                                    AdminServices.addTKAdmin(txtdktk.getText(), txtdkpass.getText(), txtdkemail.getText());
+                                    JOptionPane.showMessageDialog(null, "Đăng kí thành công!");
+                                    panelogin.setVisible(true);
+                                    panedangki.setVisible(false);
+                                    txtMaht.clear();
+                                    txtdkpass.clear();
+                                    txtdktk.clear();
+                                    txtdkemail.clear();
+                                } catch (SQLException e) {
+                                    JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã có");
+                                }
+                        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Sai mã hệ thống!");
+        }
     }
 }

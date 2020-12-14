@@ -150,7 +150,7 @@ public class AddChuyenXeController implements Initializable {
         Pattern pattern,pattern1,pattern2,pattern3;
         Matcher matcher;
         pattern = Pattern.compile("^\\d{2}[:]\\d{2}$");
-        pattern1 = Pattern.compile("^\\d{1,2}[/]\\d{1,2}[/]\\d{4}$");
+        pattern1 = Pattern.compile("^\\d{4}[-]\\d{1,2}[-]\\d{1,2}$");
         pattern2 = Pattern.compile("^\\d{2}$");
         pattern3 = Pattern.compile("^\\d{10}");
         boolean kt = pattern.matcher(txtgiokh.getText()).matches();

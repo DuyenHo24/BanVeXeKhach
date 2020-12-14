@@ -5,7 +5,6 @@
  */
 package com.mycompany.htbanve;
 
-import com.mycompany.htbanve.pojo.PrintTicket;
 import com.mycompany.htbanve.pojo.QLBV;
 import com.mycompany.htbanve.service.QLBVServices;
 import java.io.IOException;
@@ -130,7 +129,6 @@ public class QuanLyVeXeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            // lay ham bo vao main tu dong load
             UpdateQLBV();
             FindCX();
             txtngayht.setText(LocalDate.now().toString());
@@ -182,9 +180,10 @@ public class QuanLyVeXeController implements Initializable {
         txtsoghe.setText(colghe.getCellData(index));
         txtidht.setText(colidphanbiet.getCellData(index));        
     }
-    public void Edit(){
+    public void Edit() throws SQLException{
         Pattern pattern,pattern1;
         Matcher matcher;
+        String a = colghe.getCellData(tbvQLBV.getSelectionModel().getSelectedItem());
         pattern = Pattern.compile("^\\d{10}");
         pattern1 = Pattern.compile("^[a-cA-C]\\d{2}$");
         boolean kt = pattern.matcher(txtsdtkh.getText()).matches();
@@ -199,15 +198,15 @@ public class QuanLyVeXeController implements Initializable {
             JOptionPane.showMessageDialog(null, "Nhap sai số ghế: " + txtsoghe.getText());
         }
         else{     
-        try {
-            QLBVServices.updateQLBV(txttenkh.getText(), txtsdtkh.getText(), txtsoghe.getText(), txtidrandom.getText());
-            JOptionPane.showMessageDialog(null, "update");
-            UpdateQLBV();
-            FindCX();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        }
+            try {
+                QLBVServices.updateQLBV(txttenkh.getText(), txtsdtkh.getText(), txtsoghe.getText(), txtidrandom.getText());
+                JOptionPane.showMessageDialog(null, "update");
+                UpdateQLBV();
+                FindCX();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            }
     }
     public void DeleteQLBV(){
         try {

@@ -39,7 +39,6 @@ public class AdminServices {
         pst.setString(2, b);
         pst.setString(3, c);
         pst.execute();
-        
         return true;
     }
 }
