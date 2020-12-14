@@ -5,10 +5,12 @@ com\mycompany\htbanve\pojo\QLCX.class
 com\mycompany\htbanve\AddChuyenXeController.class
 com\mycompany\htbanve\service\QLCXsServices.class
 com\mycompany\htbanve\ChonChucNangController.class
+com\mycompany\htbanve\pojo\Admin.class
 com\mycompany\htbanve\service\QLBVServices.class
 com\mycompany\htbanve\App.class
 com\mycompany\htbanve\LoginController.class
 com\mycompany\htbanve\MuaVeController.class
+com\mycompany\htbanve\service\AdminServices.class
 com\mycompany\htbanve\service\JdbcUtils.class
 com\mycompany\htbanve\TrangChuController.class
 com\mycompany\htbanve\PrintTicketController.class
