@@ -26,8 +26,7 @@ public class JdbcUtils {
       {        
         try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost/htbanve",
-                            "root","123456");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost/htbanve","root","123456");
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null, e);
             }catch(SQLException ex){

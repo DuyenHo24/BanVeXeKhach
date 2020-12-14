@@ -5,8 +5,10 @@
  */
 package com.mycompany.htbanve;
 
+import com.mycompany.htbanve.pojo.QLBV;
 import com.mycompany.htbanve.pojo.QLCX;
 import com.mycompany.htbanve.service.JdbcUtils;
+import com.mycompany.htbanve.service.QLBVServices;
 import com.mycompany.htbanve.service.QLCXsServices;
 import java.io.IOException;
 import java.net.URL;
@@ -62,6 +64,7 @@ public class MuaVeController implements Initializable {
     @FXML private TableColumn<QLCX, String> colghe;
     @FXML private TableColumn<QLCX, String> colsdtnv;
     @FXML private TextField filterField;
+    @FXML private TableColumn<QLCX, String> colidphanbiet;
     
     ObservableList<QLCX> dataList;
     int index = -1;   
@@ -95,6 +98,8 @@ public class MuaVeController implements Initializable {
         coltennv.setCellValueFactory(new PropertyValueFactory<>("tennv"));
         colsdtnv.setCellValueFactory(new PropertyValueFactory<>("sdtnv"));
         colghe.setCellValueFactory(new PropertyValueFactory<>("ghe"));
+        colidphanbiet.setCellValueFactory(new PropertyValueFactory<>("idphanbiet"));
+
     }
     // Lay du lieu tu table view vao textfield
     @FXML
@@ -103,7 +108,7 @@ public class MuaVeController implements Initializable {
         if(index <= -1){
             return;
         }
-        txtid.setText(colid.getCellData(index).toString());
+        txtid.setText(colidphanbiet.getCellData(index));
         txttencx.setText(colNameCX.getCellData(index));
         txtbsx.setText(colbsx.getCellData(index));
         txtloaixe.setText(colloaixe.getCellData(index));
@@ -132,41 +137,27 @@ public class MuaVeController implements Initializable {
                   
         }else
         {                 
-            String sql = "INSERT INTO qlbv (QLBVid,QLBVtencx,QLBVbsx,QLBVgiokh,QLBVngaykh"
-                    + ",QLBVgiave,QLBVloaixe,QLBVtenkh,QLBVsdtkh,QLBVtennv,QLBVsdtnv,QLBVghe)values(?,?,?,?,?,?,?,?,?,?,?,?)";
             try {
-                pst = conn.prepareStatement(sql);
-                String rm = UUID.randomUUID().toString();
-                pst.setString(1, rm );
-                pst.setString(2,txttencx.getText());
-                pst.setString(3,txtbsx.getText());
-                pst.setString(4,txtgiokh.getText());
-                pst.setString(5,txtngaykh.getText());
-                pst.setString(6,txtgiave.getText());
-                pst.setString(7,txtloaixe.getText());
-                pst.setString(8,txttenkh.getText());
-                pst.setString(9,txtsdtkh.getText());
-                pst.setString(10,txttennv.getText());
-                pst.setString(11,txtsdtnv.getText());
-                pst.setString(12,txtMaGhe.getText()); 
-                pst.execute();
+                String rm = UUID.randomUUID().toString();   
+                QLBVServices.addVe(rm,txttencx.getText() , txtbsx.getText(),txtgiokh.getText(), txtngaykh.getText(), txtgiave.getText()
+                        , txtloaixe.getText(), txttenkh.getText(), txtsdtkh.getText(), txttennv.getText(), txtsdtnv.getText()
+                        , txtMaGhe.getText(), txtid.getText());           
                 try {
                     Integer a = (Integer.parseInt(txtghe.getText()) - 1);
                     String value1 = a.toString();
                     String value2 = txtid.getText();
-                    String sql1 = "UPDATE qlcx set QLCXghe= '"+value1+"' where idQLCX = '"+value2+"' ";
-                    pst = conn.prepareStatement(sql1);
-                    pst.execute(); 
+                   QLBVServices.GiamGhe(value1, value2);
                 } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
                 }
                 JOptionPane.showMessageDialog(null, "Quý khách đã đặt vé thành công \n"
-                        + " Lưu ý : Hãy đến quầy nhân viên để nhận vé trong 30p !!! \n"
-                        + "!!!!Quá 30p vé sẽ bị hủy!!!!\n"
+                        + " Lưu ý : Hãy đến quầy nhân viên để nhận vé trong 30p trước giờ khởi hành !!! \n"
+                        + "!!!!Quá 30p trước giờ khởi hành vé sẽ bị hủy!!!!\n"
                         + "Chân thành cảm ơn quý khách!!!");
                 UpdateQLCX();
                 FindCX();
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(null,e);
             }
         }        
     }

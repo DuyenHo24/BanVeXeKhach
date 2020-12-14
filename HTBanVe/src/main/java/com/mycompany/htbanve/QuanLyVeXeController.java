@@ -5,6 +5,7 @@
  */
 package com.mycompany.htbanve;
 
+import com.mycompany.htbanve.pojo.PrintTicket;
 import com.mycompany.htbanve.pojo.QLBV;
 import com.mycompany.htbanve.service.JdbcUtils;
 import com.mycompany.htbanve.service.QLBVServices;
@@ -14,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,13 +24,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,30 +78,26 @@ public class QuanLyVeXeController implements Initializable {
     private TextField txtsoghe;
     @FXML
     private TextField txtidrandom;
-
+    @FXML
+    private TextField txtngayht;
+    @FXML
+    private TextField txtgioht;
     @FXML
     private TableView<QLBV> tbvQLBV;
     @FXML
     private TableColumn<QLBV, String> colNameCX;
-
     @FXML
     private TableColumn<QLBV, String> colbsx;
-
     @FXML
     private TableColumn<QLBV, String> colloaixe;
-
     @FXML
     private TableColumn<QLBV, String> colngaykh;
-
     @FXML
     private TableColumn<QLBV, String> colgiokh;
-
     @FXML
     private TableColumn<QLBV, String> colgiave;
-
     @FXML
     private TableColumn<QLBV, String> coltennv;
-
     @FXML
     private TableColumn<QLBV, String> colsdtnv;
     @FXML
@@ -105,11 +110,16 @@ public class QuanLyVeXeController implements Initializable {
     private TextField filterField;
     @FXML
     private TableColumn<QLBV, String> colidrandom;
+    @FXML
+    private TableColumn<QLBV, String> colidphanbiet;
+    @FXML
+    private TextField txtidht;
     
     int index = -1;
     ObservableList<QLBV> dataList;
     Connection conn = null;
     ResultSet rs = null;
+    ResultSet rs1 = null;
     PreparedStatement pst = null;
     /**
      * Initializes the controller class.
@@ -122,6 +132,8 @@ public class QuanLyVeXeController implements Initializable {
             // lay ham bo vao main tu dong load
             UpdateQLBV();
             FindCX();
+            txtngayht.setText(LocalDate.now().toString());
+            txtgioht.setText(LocalTime.now().toString().substring(0, 5));
             
         } catch (SQLException ex) {
             Logger.getLogger(MuaVeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,6 +158,7 @@ public class QuanLyVeXeController implements Initializable {
         coltenkh.setCellValueFactory(new PropertyValueFactory<>("tenkh"));
         colsdtkh.setCellValueFactory(new PropertyValueFactory<>("sdtkh"));
         colghe.setCellValueFactory(new PropertyValueFactory<>("ghe"));
+        colidphanbiet.setCellValueFactory(new PropertyValueFactory<>("idphanbiet"));
     }
     // Lay du lieu tu table view vao textfield
     @FXML
@@ -166,6 +179,7 @@ public class QuanLyVeXeController implements Initializable {
         txttennv.setText(coltennv.getCellData(index));
         txtsdtnv.setText(colsdtnv.getCellData(index));
         txtsoghe.setText(colghe.getCellData(index));
+        txtidht.setText(colidphanbiet.getCellData(index));
         
     }
     public void Edit(){
@@ -176,14 +190,7 @@ public class QuanLyVeXeController implements Initializable {
         }
         else{     
         try {
-            conn = JdbcUtils.getConnection();
-            String value3 = txtidrandom.getText();
-            String value1 = txttenkh.getText();
-            String value2 = txtsdtkh.getText();
-            String value4 = txtsoghe.getText();          
-            String sql = "UPDATE qlbv set QLBVtenkh= '"+value1+"',QLBVsdtkh= '"+value2+"',QLBVghe='"+value4+"' where QLBVid = '"+value3+"' ";
-            pst = conn.prepareStatement(sql);
-            pst.execute();
+            QLBVServices.updateQLBV(txttenkh.getText(), txtsdtkh.getText(), txtsoghe.getText(), txtidrandom.getText());
             JOptionPane.showMessageDialog(null, "update");
             UpdateQLBV();
             FindCX();
@@ -193,13 +200,8 @@ public class QuanLyVeXeController implements Initializable {
         }
     }
     public void DeleteQLBV(){
-        conn = JdbcUtils.getConnection();
-        String sql = "DELETE FROM qlbv where QLBVid = ?";
         try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtidrandom.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "delete");
+            QLBVServices.XoaVe(txtidrandom.getText(), txtidht.getText());
             UpdateQLBV();
             FindCX();
         } catch (SQLException e) {
@@ -244,7 +246,6 @@ public class QuanLyVeXeController implements Initializable {
 
                                            else
                                                 return false;
-
             });                                                                             
         });
         SortedList<QLBV> sortedData = new SortedList<>(filteredData);
@@ -252,4 +253,21 @@ public class QuanLyVeXeController implements Initializable {
         tbvQLBV.setItems(sortedData);
 
     }
+   public void Print(ActionEvent e) throws IOException{
+//       PrintTicket pt = new PrintTicket(txtidrandom.getText(), txttencx.getText(), txtbsx.getText(), 
+//               txtngaykh.getText(), txtgiokh.getText(), txtsoghe.getText(), txtgiave.getText(), 
+//               txttenkh.getText(), txtsdtkh.getText(), txttennv.getText(), txtngayht.getText());
+//      App.setRoot("PrintTicket");
+//    UpdateQLBV();
+    Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("PrintTicket.fxml"));
+    Parent printViewParent = loader.load();
+    Scene scene = new Scene(printViewParent);
+    PrintTicketController controller = loader.getController();
+    QLBV qlbv = tbvQLBV.getSelectionModel().getSelectedItem();
+    controller.setPrint(qlbv);
+    stage.setScene(scene);
+    
+   }
 }

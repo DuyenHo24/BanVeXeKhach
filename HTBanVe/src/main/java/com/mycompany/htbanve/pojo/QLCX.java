@@ -14,9 +14,10 @@ import javafx.util.Callback;
  * @author ASUS-LAPTOP
  */
 public class QLCX {
+
     private int id;
-    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,ghe,ngaykh;
-    public QLCX(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv,String ghe) {
+    private String tencx,bsx,giokh,giave,tennv,sdtnv,loaixe,ghe,ngaykh,idphanbiet;
+    public QLCX(int id, String tencx, String bsx,String loaixe, String giokh, String ngaykh, String giave, String tennv, String sdtnv,String ghe,String idphanbiet) {
         this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
@@ -27,6 +28,7 @@ public class QLCX {
         this.tennv = tennv;
         this.sdtnv = sdtnv;
         this.ghe = ghe;
+        this.idphanbiet = idphanbiet;
     }
 
     public QLCX(String id, String text, String text0, String text1, String text2, Callback<DatePicker, DateCell> dayCellFactory, String text3, String text4, String text5) {
@@ -79,6 +81,13 @@ public class QLCX {
 
     public void setLoaixe(String loaixe) {
         this.loaixe = loaixe;
+    }
+    public String getIdphanbiet() {
+        return idphanbiet;
+    }
+
+    public void setIdphanbiet(String idphanbiet) {
+        this.idphanbiet = idphanbiet;
     }
 
     public int getId() {

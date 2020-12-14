@@ -33,6 +33,7 @@ CREATE TABLE `qlcx` (
   `QLCXsdtnv` varchar(45) NOT NULL,
   `QLCXloaixe` varchar(45) NOT NULL,
   `QLCXghe` varchar(45) NOT NULL,
+  `idphanbiet` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idQLCX`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -43,7 +44,7 @@ CREATE TABLE `qlcx` (
 
 LOCK TABLES `qlcx` WRITE;
 /*!40000 ALTER TABLE `qlcx` DISABLE KEYS */;
-INSERT INTO `qlcx` VALUES (1,'asd','sadasd','sad','sad','dsa','das','asd','sad','7'),(2,'HN->SG','sadasd','15:00','2020-12-10','200000','tung','065468431','vip','8'),(3,'HN->SG','Lam165456','15:00','2020-12-09','200000','tung','065468431','vip','7');
+INSERT INTO `qlcx` VALUES (5,'hw','he','hy','ht','hu','hi','ho','hr','hp','d0d6b0d8-a2ee-4a71-9801-fe67499da0b2'),(6,'b','c','d','e','f','g','h','j','k','15734925-f4b5-4c9f-8ffc-e2f8d2b57e50');
 /*!40000 ALTER TABLE `qlcx` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-09 23:29:00
+-- Dump completed on 2020-12-14  4:07:24
