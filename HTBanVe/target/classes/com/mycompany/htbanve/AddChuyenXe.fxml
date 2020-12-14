@@ -7,6 +7,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,10 +20,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="660.0" prefWidth="1526.0" style="-fx-background-color: #FFF4CE;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.AddChuyenXeController">
+<AnchorPane id="AnchorPane" prefHeight="779.0" prefWidth="1526.0" style="-fx-background-color: #FFF4CE;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.AddChuyenXeController">
    <children>
-      <Button id="quaylaitrangchu" layoutX="1286.0" layoutY="43.0" mnemonicParsing="false" onAction="#QuayLai" stylesheets="@css/addChuyenXe.css" text="Quay lại Trang chủ" />
-      <GridPane layoutX="54.0" layoutY="88.0" prefHeight="474.0" prefWidth="495.0" stylesheets="@css/addChuyenXe.css">
+      <AnchorPane layoutX="174.0" layoutY="48.0" prefHeight="71.0" prefWidth="376.0" style="-fx-background-color: #2F2A2B;" visible="false" />
+      <Button id="quaylaitrangchu" layoutX="1346.0" layoutY="76.0" mnemonicParsing="false" onAction="#QuayLai" prefHeight="23.0" prefWidth="119.0" stylesheets="@css/addChuyenXe.css" text="Quay lại" />
+      <GridPane layoutX="54.0" layoutY="137.0" prefHeight="474.0" prefWidth="495.0" stylesheets="@css/addChuyenXe.css">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="123.6" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="617.0" minWidth="10.0" prefWidth="380.4" />
@@ -62,7 +68,7 @@
             <TextField fx:id="txtghe" promptText="Nhập số ghế còn trống" styleClass="textfield" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
-      <TableView fx:id="tbvQLCX" layoutX="601.0" layoutY="112.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="866.0" stylesheets="@css/addChuyenXe.css">
+      <TableView fx:id="tbvQLCX" layoutX="600.0" layoutY="138.0" onMouseClicked="#getSelected" prefHeight="576.0" prefWidth="866.0" stylesheets="@css/addChuyenXe.css">
         <columns>
           <TableColumn fx:id="colid" prefWidth="31.20001220703125" text="ID" />
           <TableColumn fx:id="colNameCX" prefWidth="134.39996337890625" text="Tên chuyến xe" />
@@ -76,43 +82,40 @@
             <TableColumn fx:id="colghe" prefWidth="68.0" text="Số ghế" />
         </columns>
       </TableView>
-      <Button layoutX="277.0" layoutY="584.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="120.0" stylesheets="@css/addChuyenXe.css" text="CẬP NHẬT" />
-      <Button layoutX="98.0" layoutY="584.0" mnemonicParsing="false" onAction="#AddQLCX" prefHeight="31.0" prefWidth="152.0" stylesheets="@css/addChuyenXe.css" text="LƯU CHUYẾN XE" />
-      <Button layoutX="441.0" layoutY="584.0" mnemonicParsing="false" onAction="#DeleteQLCX" prefHeight="31.0" prefWidth="107.0" stylesheets="@css/addChuyenXe.css" text="XÓA" />
-      <TextField fx:id="filterField" layoutX="729.0" layoutY="43.0" prefHeight="26.0" prefWidth="342.0" promptText="Nhập thông tin" styleClass="textfield" stylesheets="@css/addChuyenXe.css" />
-      <Label alignment="CENTER" layoutX="174.0" layoutY="28.0" prefHeight="38.0" prefWidth="356.0" text="THÊM CHUYẾN XE" textFill="#ffa60c">
+      <Button layoutX="174.0" layoutY="685.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="187.0" stylesheets="@css/addChuyenXe.css" text="CẬP NHẬT">
+         <effect>
+            <DropShadow color="#b6c9d6" offsetX="5.0" offsetY="4.0" radius="11.192499999999999" width="25.77" />
+         </effect></Button>
+      <Button layoutX="174.0" layoutY="629.0" mnemonicParsing="false" onAction="#AddQLCX" prefHeight="31.0" prefWidth="376.0" stylesheets="@css/addChuyenXe.css" text="LƯU CHUYẾN XE">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" color="#b1afd5" offsetX="5.0" offsetY="4.0" radius="14.17" width="37.68" />
+         </effect></Button>
+      <Button layoutX="375.0" layoutY="685.0" mnemonicParsing="false" onAction="#DeleteQLCX" prefHeight="31.0" prefWidth="175.0" stylesheets="@css/addChuyenXe.css" text="XÓA">
+         <effect>
+            <DropShadow color="#bbd0ed" offsetX="5.0" offsetY="4.0" />
+         </effect></Button>
+      <TextField fx:id="filterField" layoutX="729.0" layoutY="75.0" prefHeight="26.0" prefWidth="342.0" promptText="Nhập thông tin" styleClass="textfield" stylesheets="@css/addChuyenXe.css" />
+      <Label alignment="CENTER" layoutX="169.0" layoutY="56.0" prefHeight="71.0" prefWidth="382.0" stylesheets="@css/title.css" text="THÊM CHUYẾN XE" textFill="#ffa60c">
          <font>
-            <Font name="SVN-GothamBlack" size="33.0" />
+            <Font name="SVN-GothamBlack" size="39.0" />
          </font>
+         <effect>
+            <BoxBlur iterations="0" width="0.0">
+               <input>
+                  <Lighting diffuseConstant="1.79" specularConstant="1.57" specularExponent="7.66" surfaceScale="1.32">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#f2c81d" />
+                     </light>
+                  </Lighting>
+               </input>
+            </BoxBlur>
+         </effect>
       </Label>
-      <Label layoutX="625.0" layoutY="47.0" prefHeight="18.0" prefWidth="98.0" stylesheets="@css/addChuyenXe.css" text="Tìm chuyến xe :" />
-      <Label layoutX="522.0" layoutY="97.0" prefHeight="38.0" prefWidth="18.0" text="*">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="#f00b0b57" />
-                  <Stop color="#cd201357" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </textFill>
-      </Label>
-      <Label layoutX="523.0" layoutY="139.0" prefHeight="38.0" prefWidth="18.0" text="*">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="#f00b0b57" />
-                  <Stop color="#cd201357" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </textFill>
-      </Label>
-      <Label layoutX="523.0" layoutY="183.0" prefHeight="38.0" prefWidth="18.0" text="*">
+      <Label layoutX="625.0" layoutY="79.0" prefHeight="18.0" prefWidth="98.0" stylesheets="@css/addChuyenXe.css" text="Tìm chuyến xe:" />
+      <Label layoutX="522.0" layoutY="146.0" prefHeight="38.0" prefWidth="18.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -125,7 +128,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="523.0" layoutY="226.0" prefHeight="18.0" prefWidth="18.0" text="*">
+      <Label layoutX="523.0" layoutY="188.0" prefHeight="38.0" prefWidth="18.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -138,7 +141,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="373.0" layoutY="270.0" prefHeight="38.0" prefWidth="18.0" text="*">
+      <Label layoutX="523.0" layoutY="232.0" prefHeight="38.0" prefWidth="18.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -151,7 +154,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="523.0" layoutY="313.0" prefHeight="26.0" prefWidth="18.0" text="*">
+      <Label layoutX="523.0" layoutY="275.0" prefHeight="18.0" prefWidth="18.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -164,7 +167,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="523.0" layoutY="356.0" prefHeight="18.0" prefWidth="2.0" text="*">
+      <Label layoutX="373.0" layoutY="319.0" prefHeight="38.0" prefWidth="18.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -177,7 +180,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="523.0" layoutY="485.0" prefHeight="18.0" prefWidth="2.0" text="*">
+      <Label layoutX="523.0" layoutY="362.0" prefHeight="26.0" prefWidth="18.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -190,7 +193,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="525.0" layoutY="528.0" prefHeight="18.0" prefWidth="2.0" text="*">
+      <Label layoutX="523.0" layoutY="405.0" prefHeight="18.0" prefWidth="2.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -203,7 +206,33 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="525.0" layoutY="399.0" prefHeight="18.0" prefWidth="2.0" text="*">
+      <Label layoutX="523.0" layoutY="534.0" prefHeight="18.0" prefWidth="2.0" text="*">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#f00b0b57" />
+                  <Stop color="#cd201357" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="525.0" layoutY="577.0" prefHeight="18.0" prefWidth="2.0" text="*">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="1.0" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#f00b0b57" />
+                  <Stop color="#cd201357" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="525.0" layoutY="448.0" prefHeight="18.0" prefWidth="2.0" text="*">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>

@@ -257,10 +257,21 @@ public class QuanLyVeXeController implements Initializable {
         tbvQLBV.setItems(sortedData);
 
     }
-   public void Print() throws IOException {
-       PrintTicket pt = new PrintTicket(txtidrandom.getText(), txttencx.getText(), txtbsx.getText(), 
-               txtngaykh.getText(), txtgiokh.getText(), txtsoghe.getText(), txtgiave.getText(), 
-               txttenkh.getText(), txtsdtkh.getText(), txttennv.getText(), txtngayht.getText());
-      App.setRoot("PrintTicket");
+   public void Print(ActionEvent e) throws IOException{
+//       PrintTicket pt = new PrintTicket(txtidrandom.getText(), txttencx.getText(), txtbsx.getText(), 
+//               txtngaykh.getText(), txtgiokh.getText(), txtsoghe.getText(), txtgiave.getText(), 
+//               txttenkh.getText(), txtsdtkh.getText(), txttennv.getText(), txtngayht.getText());
+//      App.setRoot("PrintTicket");
+//    UpdateQLBV();
+    Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("PrintTicket.fxml"));
+    Parent printViewParent = loader.load();
+    Scene scene = new Scene(printViewParent);
+    PrintTicketController controller = loader.getController();
+    QLBV qlbv = tbvQLBV.getSelectionModel().getSelectedItem();
+    controller.setPrint(qlbv);
+    stage.setScene(scene);
+    
    }
 }

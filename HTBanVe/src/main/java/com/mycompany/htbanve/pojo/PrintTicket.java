@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
  */
 public class PrintTicket {
 
+    
+
     private String id;
     private String tencx;
     private String bsx;
@@ -24,9 +26,10 @@ public class PrintTicket {
     private String sdt;
     private String tennv;
     private String ngayin;
+    private String gioin;
     
     public PrintTicket(String id, String tencx, String bsx, String ngaykh, String giokh, 
-            String ghe, String gia, String tenkh, String sdt, String tennv, String ngayin) {
+            String ghe, String gia, String tenkh, String sdt, String tennv, String ngayin, String gioin) {
         this.id = id;
         this.tencx = tencx;
         this.bsx = bsx;
@@ -38,7 +41,7 @@ public class PrintTicket {
         this.sdt = sdt;
         this.tennv = tennv;
         this.ngayin = ngayin;
-    
+        this.gioin = gioin;
     }
 
     public PrintTicket(TextField txtidrandom, TextField txttencx, TextField txtbsx, TextField txtngaykh, TextField txtgiokh, TextField txtsoghe, TextField txtgiave, TextField txttenkh, TextField txtsdtkh, TextField txttennv, TextField txtngayht) {
@@ -202,5 +205,17 @@ public class PrintTicket {
         this.ngayin = ngayin;
     }
     
-    
+    /**
+     * @return the gioin
+     */
+    public String getGioin() {
+        return gioin;
+    }
+
+    /**
+     * @param gioin the gioin to set
+     */
+    public void setGioin(String gioin) {
+        this.gioin = gioin;
+    }
 }
