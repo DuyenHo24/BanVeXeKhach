@@ -6,28 +6,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="375.0" prefWidth="356.0" style="-fx-background-color: #2F2A2B;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.ChonChucNangController">
+<AnchorPane id="AnchorPane" prefHeight="375.0" prefWidth="618.0" style="-fx-background-color: #2F2A2B;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.ChonChucNangController">
    <children>
-      <ImageView fitHeight="104.0" fitWidth="193.0" layoutX="89.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="187.0" fitWidth="311.0" layoutX="150.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/dragun.jpg" />
+            <Image url="@img/oubus.png" />
          </image>
       </ImageView>
-      <Button layoutX="92.0" layoutY="130.0" mnemonicParsing="false" onAction="#SwitchtoAddCX" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Quản lý chuyến xe" textFill="#fff4ce">
+      <Button layoutX="92.0" layoutY="211.0" mnemonicParsing="false" onAction="#SwitchtoAddCX" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Quản lý chuyến xe" textFill="#fff4ce">
          <font>
-            <Font name="SVN-GothamBlack" size="12.0" />
+            <Font name="SVN-Gotham Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="92.0" layoutY="188.0" mnemonicParsing="false" onAction="#SwitchtoQLVX" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Quản lý vé" textFill="#fff4ce">
+      <Button layoutX="349.0" layoutY="213.0" mnemonicParsing="false" onAction="#SwitchtoQLVX" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Quản lý vé" textFill="#fff4ce">
          <font>
-            <Font name="SVN-GothamBlack" size="12.0" />
+            <Font name="SVN-Gotham Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="92.0" layoutY="301.0" mnemonicParsing="false" onAction="#SwitchtoTC" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Trở về Trang Chủ" textFill="#fff4ce">
+      <Button layoutX="349.0" layoutY="274.0" mnemonicParsing="false" onAction="#SwitchtoTC" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Trở về Trang Chủ" textFill="#fff4ce">
          <font>
-            <Font name="SVN-GothamBlack" size="12.0" />
+            <Font name="SVN-Gotham Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="92.0" layoutY="245.0" mnemonicParsing="false" onAction="#SwitchtoLogin" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Trở về Login" textFill="#fff4ce">
+      <Button layoutX="92.0" layoutY="273.0" mnemonicParsing="false" onAction="#SwitchtoLogin" prefHeight="26.0" prefWidth="180.0" stylesheets="@css/chonChucNang.css" text="Trở về Login" textFill="#fff4ce">
          <font>
-            <Font name="SVN-GothamBlack" size="12.0" />
+            <Font name="SVN-Gotham Bold" size="12.0" />
          </font></Button>
    </children>
 </AnchorPane>
