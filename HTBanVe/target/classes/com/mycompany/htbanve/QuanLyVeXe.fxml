@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,15 +16,22 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1518.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.QuanLyVeXeController">
+<AnchorPane id="AnchorPane" prefHeight="792.0" prefWidth="1543.0" style="-fx-background-color: #182860;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.htbanve.QuanLyVeXeController">
    <children>
+<<<<<<< HEAD
+      <AnchorPane id="AnchorPane" layoutX="37.0" prefHeight="792.0" prefWidth="1500.0" style="-fx-background-color: #182860;" stylesheets="@css/quanLyChuyenXe.css">
+         <children>
+            <Button layoutX="1322.0" layoutY="79.0" mnemonicParsing="false" onAction="#QuayLaiTC" prefHeight="27.0" prefWidth="127.0" text="Quay lại" />
+            <GridPane layoutX="28.0" layoutY="181.0" prefHeight="490.0" prefWidth="448.0">
+=======
       <AnchorPane id="AnchorPane" prefHeight="690.0" prefWidth="1683.0">
          <children>
             <Button layoutX="1157.0" layoutY="43.0" mnemonicParsing="false" onAction="#QuayLaiTC" text="Quay lại" />
             <GridPane layoutX="13.0" layoutY="111.0" prefHeight="502.0" prefWidth="506.0">
+>>>>>>> 0b17f83a1cbe50c07eb3fa0fb5c4510e7e84b5ef
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="161.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="617.0" minWidth="10.0" prefWidth="482.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="132.4000244140625" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="617.0" minWidth="10.0" prefWidth="337.9999755859375" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="52.999986267089845" minHeight="0.0" prefHeight="29.399993896484375" vgrow="SOMETIMES" />
@@ -41,6 +50,37 @@
                   <RowConstraints maxHeight="46.00003662109373" minHeight="10.0" prefHeight="42.00003662109373" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
+<<<<<<< HEAD
+                  <Label prefHeight="21.0" prefWidth="150.0" text="Tên chuyến xe :" GridPane.rowIndex="1" />
+                  <Label text="Biển số xe:" GridPane.rowIndex="2" />
+                  <Label text="Loại xe:" GridPane.rowIndex="3" />
+                  <Label text="Ngày khởi hành:" GridPane.rowIndex="4" />
+                  <Label text="Giờ khởi hành:" GridPane.rowIndex="5" />
+                  <Label text="Giá vé:" GridPane.rowIndex="6" />
+                  <Label text="Mô tả:" GridPane.rowIndex="10" />
+                  <Label text="Tên nhân viên:" GridPane.rowIndex="11" />
+                  <Label text="SĐT liên hệ:" GridPane.rowIndex="12" />
+                  <TextArea disable="true" prefHeight="200.0" prefWidth="200.0" text="Hành khách có mặt tại văn phòng trước giờ khởi hành !&#10;To be present at this office before departure time !" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <Label text="Họ tên khách:" GridPane.rowIndex="8" />
+                  <Label text="SDT khách:" GridPane.rowIndex="9" />
+                  <TextField fx:id="txttenkh" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="txtsdtkh" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <TextField fx:id="txttencx" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtbsx" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtloaixe" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtngaykh" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtgiokh" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtgiave" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="txttennv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <TextField fx:id="txtsdtnv" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                  <Label text="Ghế:" GridPane.rowIndex="7" />
+                  <TextField fx:id="txtsoghe" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="txtidrandom" disable="true" GridPane.columnIndex="1" />
+                  <Label text="ID:" />
+               </children>
+            </GridPane>
+            <TableView fx:id="tbvQLBV" layoutX="540.0" layoutY="139.0" onMouseClicked="#getSelected" prefHeight="538.0" prefWidth="910.0">
+=======
                   <Label prefHeight="21.0" prefWidth="150.0" text="Tên chuyến xe :" GridPane.rowIndex="2" />
                   <Label text="Biển số xe :" GridPane.rowIndex="3" />
                   <Label text="Loại xe :" GridPane.rowIndex="4" />
@@ -72,22 +112,28 @@
                </children>
             </GridPane>
             <TableView fx:id="tbvQLBV" layoutX="556.0" layoutY="153.0" onMouseClicked="#getSelected" prefHeight="459.0" prefWidth="1122.0">
+>>>>>>> 0b17f83a1cbe50c07eb3fa0fb5c4510e7e84b5ef
                <columns>
                   <TableColumn fx:id="colNameCX" prefWidth="102.4000244140625" text="Tên chuyến xe" />
-                  <TableColumn fx:id="colbsx" prefWidth="82.39996337890625" text="Biển số xe" />
-                  <TableColumn fx:id="colloaixe" prefWidth="64.79998779296875" text="Loại xe" />
-                  <TableColumn fx:id="colngaykh" prefWidth="94.39996337890625" text="Ngày khởi hành" />
-                  <TableColumn fx:id="colgiokh" prefWidth="98.39996337890625" text="Giờ khởi hành" />
-                  <TableColumn fx:id="colgiave" prefWidth="86.4000244140625" text="Giá vé" />
-                  <TableColumn fx:id="coltenkh" prefWidth="101.5999755859375" text="Tên khách hàng" />
-                  <TableColumn fx:id="colsdtkh" prefWidth="95.99997558593748" text="SDT khách" />
-                  <TableColumn fx:id="coltennv" prefWidth="90.39990234375" text="Tên nhân viên" />
-                  <TableColumn fx:id="colsdtnv" prefWidth="104.79997558593755" text="SDT nhân viên" />
+                  <TableColumn fx:id="colbsx" prefWidth="74.4000244140625" text="Biển số xe" />
+                  <TableColumn fx:id="colloaixe" prefWidth="60.0" text="Loại xe" />
+                  <TableColumn fx:id="colngaykh" prefWidth="108.0" text="Ngày khởi hành" />
+                  <TableColumn fx:id="colgiokh" prefWidth="105.5999755859375" text="Giờ khởi hành" />
+                  <TableColumn fx:id="colgiave" prefWidth="59.199951171875" text="Giá vé" />
+                  <TableColumn fx:id="coltenkh" prefWidth="122.4000244140625" text="Tên khách hàng" />
+                  <TableColumn fx:id="colsdtkh" prefWidth="82.39990234375" text="SDT khách" />
+                  <TableColumn fx:id="coltennv" prefWidth="92.7999267578125" text="Tên nhân viên" />
+                  <TableColumn fx:id="colsdtnv" prefWidth="116.800048828125" text="SDT nhân viên" />
                   <TableColumn fx:id="colghe" prefWidth="75.0" text="Ghế" />
                   <TableColumn fx:id="colidrandom" prefWidth="75.0" text="idrandom" />
                   <TableColumn fx:id="colidphanbiet" prefWidth="75.0" text="idphanbiet" />
                </columns>
             </TableView>
+<<<<<<< HEAD
+            <Button layoutX="152.0" layoutY="716.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="134.0" text="Cập nhật" />
+            <TextField fx:id="filterField" layoutX="795.0" layoutY="79.0" prefHeight="26.0" prefWidth="342.0" />
+            <Label layoutX="453.0" layoutY="451.0" prefHeight="18.0" prefWidth="2.0" text="*">
+=======
             <Button layoutX="13.0" layoutY="644.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="152.0" text="Cập nhật" />
             <TextField fx:id="filterField" layoutX="729.0" layoutY="43.0" prefHeight="26.0" prefWidth="342.0" />
             <Label layoutX="164.0" layoutY="15.0" prefHeight="55.0" prefWidth="358.0" text="QUẢN LÝ VÉ XE">
@@ -97,6 +143,7 @@
             </Label>
             <Label layoutX="633.0" layoutY="47.0" prefHeight="18.0" prefWidth="90.0" text="Tìm chuyến xe :" />
             <Label layoutX="523.0" layoutY="383.0" prefHeight="18.0" prefWidth="2.0" text="*">
+>>>>>>> 0b17f83a1cbe50c07eb3fa0fb5c4510e7e84b5ef
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -109,7 +156,11 @@
                   </RadialGradient>
                </textFill>
             </Label>
+<<<<<<< HEAD
+            <Label layoutX="453.0" layoutY="488.0" prefHeight="18.0" prefWidth="2.0" text="*">
+=======
             <Label layoutX="523.0" layoutY="423.0" prefHeight="18.0" prefWidth="2.0" text="*">
+>>>>>>> 0b17f83a1cbe50c07eb3fa0fb5c4510e7e84b5ef
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -122,7 +173,11 @@
                   </RadialGradient>
                </textFill>
             </Label>
+<<<<<<< HEAD
+            <Label layoutX="454.0" layoutY="523.0" prefHeight="18.0" prefWidth="2.0" text="*">
+=======
             <Label layoutX="523.0" layoutY="462.0" prefHeight="18.0" prefWidth="2.0" text="*">
+>>>>>>> 0b17f83a1cbe50c07eb3fa0fb5c4510e7e84b5ef
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -135,12 +190,27 @@
                   </RadialGradient>
                </textFill>
             </Label>
+<<<<<<< HEAD
+            <Button layoutX="341.0" layoutY="716.0" mnemonicParsing="false" onAction="#DeleteQLBV" prefHeight="31.0" prefWidth="134.0" text="Xóa" />
+            <Button layoutX="1298.0" layoutY="707.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" text="Xuất vé" />
+            <ImageView fitHeight="121.0" fitWidth="508.0" layoutX="5.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/qlvxe.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="222.0" layoutX="540.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/tìm%20chuyến%20xe.png" />
+               </image>
+            </ImageView>
+=======
             <Button layoutX="246.0" layoutY="644.0" mnemonicParsing="false" onAction="#DeleteQLBV" prefHeight="31.0" prefWidth="152.0" text="Xóa" />
             <Button layoutX="676.0" layoutY="644.0" mnemonicParsing="false" onAction="#Print" prefHeight="31.0" prefWidth="93.0" text="Xuất vé" />
             <TextField fx:id="txtngayht" layoutX="107.0" layoutY="82.0" />
             <TextField fx:id="txtgioht" layoutX="386.0" layoutY="82.0" />
             <Label layoutX="14.0" layoutY="86.0" text="Ngày hệ thống :" />
             <Label layoutX="305.0" layoutY="86.0" text="Giờ hệ thống :" />
+>>>>>>> 0b17f83a1cbe50c07eb3fa0fb5c4510e7e84b5ef
          </children>
       </AnchorPane>
    </children>

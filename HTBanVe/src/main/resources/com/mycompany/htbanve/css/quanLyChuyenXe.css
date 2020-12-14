@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Dec 12, 2020, 9:58:54 AM
+    Created on : Dec 14, 2020, 1:14:13 PM
     Author     : Truc Lam
 */
 
@@ -15,7 +15,7 @@ and open the template in the editor.
 }
 .label{
     -fx-font-family:"SVN-Gotham Bold";
-    -fx-text-fill:#2F2A2B;
+    -fx-text-fill:#DF8E07;
 }
 .textfield{
     -fx-background-color:#FFFFFF;
