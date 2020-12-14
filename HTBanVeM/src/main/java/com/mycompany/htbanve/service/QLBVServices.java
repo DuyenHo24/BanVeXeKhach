@@ -143,17 +143,4 @@ public class QLBVServices {
             }
         return true;
     }
-    public static boolean KiemTraGhe(String a) throws SQLException{
-        Connection conn = JdbcUtils.getConnection();
-        String sql = "Select * from qlbv where QLBVghe = ? ";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(1,a);
-        ResultSet rs = pst.executeQuery();
-        rs.next();
-            while(a.equals(rs.getString(1)))
-            {
-                return false;
-            }             
-        return true;
-    }
 }

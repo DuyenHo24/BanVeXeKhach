@@ -97,6 +97,10 @@ public class LoginController implements Initializable {
         String EMAIL_PATTERN = "^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$";
         boolean kt = Pattern.matches(EMAIL_PATTERN, txtdkemail.getText());
         conn = JdbcUtils.getConnection();
+        if("".equals(txttentk.getText()) || "".equals(txtpass.getText()))
+        {
+            JOptionPane.showMessageDialog(null, "Không thể để trống tài khoản và mật khẩu");
+        }else
         if("KTPM".equals(txtMaht.getText())){            
             if(kt == false){
                 JOptionPane.showConfirmDialog(null, "Nhập sai quy định email!");

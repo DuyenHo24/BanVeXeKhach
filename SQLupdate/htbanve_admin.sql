@@ -36,7 +36,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('','',''),('Duc','123456','Duc@gmail.com'),('Duyen','123456','Duyen@gmail.com'),('Lam','123456','Lam@gmail.com'),('Ngan','123456','Ngan@gmail.com'),('tung','123456','tung@gmail.com'),('Tung123','123456','Tung@gmail.com'),('Tung2000','12345','Tung2000@gmail.com'),('Tung2000    ','123456','Tung2000@gmail.com'),('Tung20001','12345','Tung2000@gmail.com');
+INSERT INTO `admin` VALUES ('','',''),('123456','12345','Tunga1@gmail.com'),('Alalaa','123456','hello'),('Duc','123456','Duc@gmail.com'),('Duyen','123456','Duyen@gmail.com'),('Lam','123456','Lam@gmail.com'),('Ngan','123456','Ngan@gmail.com'),('tung','123456','tung@gmail.com'),('Tung123','123456','Tung@gmail.com'),('Tung2000','12345','Tung2000@gmail.com'),('Tung2000    ','123456','Tung2000@gmail.com'),('Tung20001','12345','Tung2000@gmail.com'),('TungXeng1','Tung123','TungXeng@gmail.com');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-14  4:07:23
+-- Dump completed on 2020-12-14 23:06:42
